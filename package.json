@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AustinCodingAcademy/JS211_PigLatinProject#readme",
   "dependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^6.8.0",
     "functional-javascript-workshop": "^1.0.6",
     "htmllint-cli": "github:kevincolten/htmllint-cli",
     "http-server": "^0.11.1",
