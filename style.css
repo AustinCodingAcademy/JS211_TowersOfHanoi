@@ -7,6 +7,10 @@
   border: 1px solid lightgray;
 }
 
+.row {
+  z-index: -10;
+}
+
 [data-row].red {
   background-color: #f6c5c5;
 }
@@ -21,6 +25,10 @@
 
 [data-row].blue {
   background-color: aliceblue;
+}
+
+.stone {
+  z-index: 10;
 }
 
 [data-color] {
