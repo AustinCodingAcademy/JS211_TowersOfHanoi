@@ -38,8 +38,11 @@ const movePiece = (fromStack, toStack) => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (fromStack, toStack) => {
   // Your code here
+  // these variables are simply to enhance readability of the comparison
+  // they represent the last piece in each of the "from" and "to" arrays
   let sourcePiece = stacks[fromStack][stacks[fromStack].length-1];
   let targetPiece = stacks[toStack][stacks[toStack.length-1]];
+  // if the target spot is empty it's safe to just drop the piece there
   if (!stacks[toStack][stacks[toStack].length-1]) {return true;} // target spot is empty
   // if the target exists and is bigger than the source, return true...otherwise return false
   if (targetPiece > sourcePiece) {
@@ -52,6 +55,8 @@ const isLegal = (fromStack, toStack) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
+  // if the array for the other two spots contains all elements of the original array
+  // then clearly you have won
   if (stacks["b"].length==4 || stacks["b"].length===4) {
     return true;
   } else return false;
@@ -60,8 +65,11 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  // if it's a valid move
   if (isLegal(startStack,endStack)) {
+    // make the move
     movePiece(startStack,endStack);
+    // then check if they won
     if (checkForWin()) { return ("You win");}
   } else return ("Invalid Move");
 }
