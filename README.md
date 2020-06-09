@@ -1,22 +1,12 @@
-# JS211_Towers of Hanoi[![CircleCI](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages.svg?style=svg)](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages)
-
-![](http://en.gravatar.com/userimage/107370100/a08594145564536138dfaaf072c7b241.png)
-
-
-
-
-
 This is my tower of hanoi project for ACA. The object of the game is to stack the blocks from the left side to the right side. But you have to put a big block on top of a small block. This was made with html5, css, and javascript.
 
 Instructions
+1. Click on a block, it will be highlighted in green.
+2. Click on a tower to stack.
 
-Click on a block, it will be highlighted in green.
-Click on a tower to stack.
 Rules
-
-You can only move one block at a time.
-Big blocks cant go on little blocks.
-
+1. You can only move one block at a time.
+2. Big blocks cant go on little blocks.
 
 
 
@@ -26,6 +16,11 @@ Big blocks cant go on little blocks.
 
 
 
+
+
+# JS211_Towers of Hanoi[![CircleCI](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages.svg?style=svg)](https://circleci.com/gh/AustinCodingAcademy/javascript-workbook/tree/gh-pages)
+
+![](http://en.gravatar.com/userimage/107370100/a08594145564536138dfaaf072c7b241.png)
 
 
 # Austin Coding Academy
