@@ -1,30 +1,30 @@
 var selected = null;
-var towerOne = document.querySelector('#towerOne');
-var towerTwo = document.querySelector('#towerTwo');
-var towerThree = document.querySelector('#towerThree');
-var ringOne = document.querySelector('#ringOne');
-var ringTwo = document.querySelector('#ringTwo');
-var ringThree = document.querySelector('#ringThree');
+var firstTower = document.querySelector('#firstTower');
+var secondTower = document.querySelector('#secondTower');
+var thirdTower = document.querySelector('#thirdTower');
+var firstRing = document.querySelector('#firstRing');
+var secondRing = document.querySelector('#secondRing');
+var thirdRing = document.querySelector('#thirdRing');
 
-
-towerOne.addEventListener('click', function(event){
- 
+//code for first tower
+firstTower.addEventListener('click', function(event){
+    //check if same tower selected
     var tower = event.target;
     var firstRing = event.target.firstElementChild;
         if(selected){
-       
-       
-       
+            //two things can happen here:
+            //if first child is already selected, then deselect it
+            //i.e we are clicking on a tower that has already been clicked
             if(firstRing){
-                if(selected.dataset.weight == firstRing.dataset.weight
-                   
+                if(selected.dataset.weight == firstRing.dataset.weight){
+                    //they are the same to deselect it
                     selected.classList.remove("selected");
                     selected = null;
                 }
-                 on top
-                
-                else if(selected.dataset.weight  < firstRing.dataset.w
-                   
+                //else if different then try and see if we can place it on top
+                //we compare whats selected weight to first ring weight
+                else if(selected.dataset.weight  < firstRing.dataset.weight){
+                    //we can only place on top if its less than
                     tower.insertBefore(selected,firstRing);
                     selected.classList.remove("selected");
                     selected = null;
@@ -37,26 +37,28 @@ towerOne.addEventListener('click', function(event){
         }else{
             selected = firstRing;
             selected.classList.add("selected");
-        }
+        }       
 });
-towerTwo.addEventListener('click', function(event){
-    
+
+//code for second tower
+secondTower.addEventListener('click', function(event){
+    //check if same tower selected
     var tower = event.target;
     var firstRing = event.target.firstElementChild;
         if(selected){
- 
- 
- 
+            //two things can happen here:
+            //if first child is already selected, then deselect it
+            //i.e we are clicking on a tower that has already been clicked
             if(firstRing){
-                if(selected.dataset.weight == firstRing.dataset.weight
-                  
+                if(selected.dataset.weight == firstRing.dataset.weight){
+                    //they are the same to deselect it
                     selected.classList.remove("selected");
                     selected = null;
-                
-                 on top
-                
-                else if(selected.dataset.weight  < firstRing.dataset.w
-                    
+                }
+                //else if different then try and see if we can place it on top
+                //we compare whats selected weight to first ring weight
+                else if(selected.dataset.weight  < firstRing.dataset.weight){
+                    //we can only place on top if its less than
                     tower.insertBefore(selected,firstRing);
                     selected.classList.remove("selected");
                     selected = null;
@@ -73,35 +75,38 @@ towerTwo.addEventListener('click', function(event){
             }
         }
 });
-towerThree.addEventListener('click', function(event){
-    
+
+//code for third tower
+thirdTower.addEventListener('click', function(event){
+    //check if same tower selected
     var tower = event.target;
     var firstRing = event.target.firstElementChild;
         if(selected){
-       
-       
-       
+            //two things can happen here:
+            //if first child is already selected, then deselect it
+            //i.e we are clicking on a tower that has already been clicked
             if(firstRing){
-                if(selected.dataset.weight == firstRing.dataset.weight
-                  
+                if(selected.dataset.weight == firstRing.dataset.weight){
+                    //they are the same to deselect it
                     selected.classList.remove("selected");
                     selected = null;
                 }
-                 on top
-                
-                else if(selected.dataset.weight  < firstRing.dataset.w
-                    
+                //else if different then try and see if we can place it on top
+                //we compare whats selected weight to first ring weight
+                else if(selected.dataset.weight  < firstRing.dataset.weight){
+                    //we can only place on top if its less than
                     tower.insertBefore(selected,firstRing);
                     selected.classList.remove("selected");
                     selected = null;
-                    
+                    //check to see if you are done. we only need this for tower 3
                     var weight = '';
                     for(var i = 0; i < tower.children.length; i++){
                         weight += tower.children[i].dataset.weight;
                     }
                     if(weight === '123'){
-                        document.querySelector("#win").classList.remov
-                        document.querySelector("#win").classList.add("
+                        //should run when game is run
+                        alert("Winner");
+                        document.querySelector("#winning").classList.remove("hidden");
 
                     }
                 }
