@@ -2,6 +2,32 @@
 
 ![](http://en.gravatar.com/userimage/107370100/a08594145564536138dfaaf072c7b241.png)
 
+
+
+
+
+This is my tower of hanoi project for ACA. The object of the game is to stack the blocks from the left side to the right side. But you have to put a big block on top of a small block. This was made with html5, css, and javascript.
+
+Instructions
+
+Click on a block, it will be highlighted in green.
+Click on a tower to stack.
+Rules
+
+You can only move one block at a time.
+Big blocks cant go on little blocks.
+
+
+
+
+
+
+
+
+
+
+
+
 # Austin Coding Academy
 
 ## JavaScript 211 Project: Towers of Hanoi
