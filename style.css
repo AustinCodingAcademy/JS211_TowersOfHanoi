@@ -1,119 +1,76 @@
+.title {
+    display: inline-block;
+    font-stretch: extra-expanded;
+    font-family: Impact;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 main {
-  background-color: blue;
-  max-width: 1500px;
-  margin: 0 auto; 
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end; 
-  justify-content: center;
+    background-color: white;
+    max-width: 1500px;
+    margin: 0 auto; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    justify-content: center;
 } 
 .towers {
-  background-color: blue;
-  border-style: solid dashed solid dashed;
-  border-width: 10px 10px 10px 10px;
-  height: 400px;
-  min-width: 300px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-}
-.title {
-  display: inline-block;
-  font-stretch: extra-expanded;
-  font-family: Impact;
-  margin: 0 auto; 
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    background-color: white;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    height: 400px;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
 }
 
-#uno {
-  background-image: url("wall.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  display:block;
-  pointer-events: none;
+
+#firstRing {
+    background-image: url("wall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    display:block;
+    pointer-events: none;
 }
-#dos {
-  background-image: url("wall.jpg");
-  background-repeat: no-rwall
-  background-size: cover;
-  width: 150px;
-  height: 50px;
-  margin: 0 auto;
-  display:block;
-  pointer-events: none;
+#secondRing {
+    background-image: url("wall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    display:block;
+    pointer-events: none;
 }
-#tres {
-  background-image: url("wall.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 250px;
-  height: 50px;
-  margin: 0 auto;
-  display:block;
-  pointer-events: none;
-}
-.foot {
-  text-decoration: none;
-  font-family: Impact;
-  margin: 0 auto; 
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+#thirdRing {
+    background-image: url("wall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    display:block;
+    pointer-events: none;
 }
 a {
-  text-decoration: none;
-  font-size: 2em;
-  color: black;
+    text-decoration: none;
+    font-size: 2em;
+    color: black;
 }
 .selected{
-  border:3px solid red;
+    border:3px solid green;
 }
 .hidden{
-  display:none;
-}
-.blink_me {
-  display: inline;
-  -webkit-animation-name: blinker;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: linea
-  -webkit-animation-iteration-count: infin
-  
-  -moz-animation-name: blinker;
-  -moz-animation-duration: 1s;
-  -moz-animation-timing-function: linear;
-  -moz-animation-iteration-count: infinite
-  
-  animation-name: blinker;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-@-moz-keyframes blinker {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-@-webkit-keyframes blinker {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-@keyframes blinker {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
+    display:none;
 }
