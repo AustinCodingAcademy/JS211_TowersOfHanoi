@@ -1,70 +1,119 @@
-body{
-  background-color: white;
-}
-
-#board{
-  width:auto;
-  height: 500px;
-  margin-left: 15%;
-}
-
-#displayOutput{
-  text-align: center;
-  font-size: 34px;
-  margin: 10px;
-  padding: 10px;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-#piece2{
-  width: 120px;
-  background-color: green;
-}
-
-#piece3{
-  width: 160px;
-  background-color: yellow;
-}
-
-#piece4{
-  width: 200px;
+main {
   background-color: blue;
+  max-width: 1500px;
+  margin: 0 auto; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; 
+  justify-content: center;
+} 
+.towers {
+  background-color: blue;
+  border-style: solid dashed solid dashed;
+  border-width: 10px 10px 10px 10px;
+  height: 400px;
+  min-width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
 }
-
-#displayMoves{
-  text-align: center;
-  font-size: 34px;
-  margin: 10px;
-  padding: 10px;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.shell{
-  height: 300px;
-  width:300px;
-  border: 2px solid black;
+.title {
   display: inline-block;
-  position: relative;
-  margin: auto;
-  background-color: black;
+  font-stretch: extra-expanded;
+  font-family: Impact;
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.towerBase{
-  height:auto;
+#uno {
+  background-image: url("wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display:block;
+  pointer-events: none;
+}
+#dos {
+  background-image: url("wall.jpg");
+  background-repeat: no-rwall
+  background-size: cover;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display:block;
+  pointer-events: none;
+}
+#tres {
+  background-image: url("wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 250px;
-  min-height: 45px;
-  position:absolute;
-  bottom: 0;
-  text-align: -webkit-center;
+  height: 50px;
+  margin: 0 auto;
+  display:block;
+  pointer-events: none;
+}
+.foot {
+  text-decoration: none;
+  font-family: Impact;
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  font-size: 2em;
+  color: black;
+}
+.selected{
+  border:3px solid red;
+}
+.hidden{
+  display:none;
+}
+.blink_me {
+  display: inline;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linea
+  -webkit-animation-iteration-count: infin
+  
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite
+  
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@-moz-keyframes blinker {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
 }
 
-.piece{
-  height: 40px;
-  width: 80px;
-  background-color: red;
-  border: 1px solid black;
+@-webkit-keyframes blinker {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
 }
 
-.selected {
-  background-color: DarkSlateBlue;
+@keyframes blinker {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
 }
