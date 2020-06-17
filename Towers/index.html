@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div id="rod1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="d1" draggable="true" ondragstart="drag(event,this)"></div>
+    <div id="d2" draggable="true" ondragstart="drag(event,this)"></div>
+    <div id="d3" draggable="true" ondragstart="drag(event,this)"></div>
+  </div>
+
+  <div id="rod2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <div id="rod3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+  <br><br><br>
+  <p id="p1"></p>
+  <p id="p2"></p>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
