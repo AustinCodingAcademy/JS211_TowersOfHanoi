@@ -1,0 +1,7 @@
+For the Code plan, a drop can only be made if
+1.       It is dropped in a empty square
+2.       It is dropped on a larger stack (identified by the id of each stack)
+3.       It is the top stack (can’t select a middle stack to be dropped) desired to be dropped.
+ 
+For the Test/write up, I used the console log as I constructed it to test it.   
+Sorry, didn’t document much on this one.
