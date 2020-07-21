@@ -32,10 +32,7 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 
 ### Example
 
-Dissect the following game to get an insight on how to build Towers of Hanoi with a GUI
-
-<p data-height="379" data-theme-id="0" data-slug-hash="YxMBPV" data-default-tab="js,result" data-user="austincoding" data-embed-version="2" data-pen-title="Color Towers" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/austincoding/pen/YxMBPV/">Color Towers</a> by Austin Coding Academy (<a href="https://codepen.io/austincoding">@austincoding</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get an insight on how to build Towers of Hanoi with a GUI
 
 ### Instructions
 
