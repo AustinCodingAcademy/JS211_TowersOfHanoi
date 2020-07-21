@@ -66,6 +66,7 @@ const isLegal = (start, end) => {
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
+  
 // <!--when all stones have been moved to a new stack that wasn't the starting stack-->
 // <!--check for win-->
 // <!--when stack B or C = [4, 3, 2, 1]-->
