@@ -36,6 +36,8 @@ const movePiece = (startStack, endStack) => {
   // Your code here
   stacks[endStack].push(stacks[startStack].pop())
   }
+
+  // popping from startStack and pushing to endStack
   
 
 
@@ -54,6 +56,7 @@ const isLegal = (start, end) => {
   }
 }
 
+//  if thing is in hand, and endStack is empty, or thing in hand is smaller than last thing in endStack place thing from hand to endStack
   // <!-- not allow larger stones on top of smaller stones -->
   //   <!-- stone 4 cannot go on stone 3 -->
 
@@ -63,6 +66,7 @@ const isLegal = (start, end) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
 
+  // at any point if stacks length is equal to 4 things YOU WIN! else keep playing
   if (stacks['b'].length === 4) {
     console.log("Winner!")
     return true
