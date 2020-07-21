@@ -62,6 +62,15 @@ const isLegal = (start, end) => {
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
+
+  if (stacks['b'].length === 4) {
+    console.log("Winner!")
+    return true
+  } else {
+    return false
+  }
+
+
   // Your code here
   // <!-- when all stones have been moved to a new stack that wasnt the starting stack -->
   //  <!-- check for winner -->
@@ -76,11 +85,14 @@ const towersOfHanoi = (start, end) => {
   // Your code here
   // <!-- stack.appendChild(stone) -->
 
-  // callback in order movePiece
-  movePiece(start, end)  
-    // isLegal
-    isLegal(start, end)
+     // isLegal
+    if (isLegal(start, end)) {
+    // callback in order movePiece
+    movePiece(start, end)  
+ 
     // checkForWin
+    checkForWin(start, end)
+    }
     // else towersOfHanoi
 
 }
