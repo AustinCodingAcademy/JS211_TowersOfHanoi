@@ -29,19 +29,25 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
+// let startStack = first entered stack
+// let endStack = second entered stack
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
   // Your code here
-  // putting last stone in a stack into a bucket
-  // <!-- move last stone in stack to a new stack -->
-  // <!-- lastChild = stack.lastElementChild -->
+  stacks[endStack].push(stacks[startStack].pop())
+  }
+  
 
 
-}
+
+
+
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (startStack, endStack) => {
   // Your code here
+
+  
   // <!-- not allow larger stones on top of smaller stones -->
   //   <!-- stone 4 cannot go on stone 3 -->
 
@@ -60,11 +66,12 @@ const checkForWin = () => {
 }
 
 // When is this function called? What should it do with its argument?
-const towersOfHanoi = (startStack, endStack) => {
+const towersOfHanoi = (start, end) => {
   // Your code here
   // <!-- stack.appendChild(stone) -->
 
   // callback in order movePiece
+  movePiece(start, end)  
     // isLegal
     // checkForWin
     // else towersOfHanoi
