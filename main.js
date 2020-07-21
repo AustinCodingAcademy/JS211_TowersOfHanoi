@@ -44,15 +44,21 @@ const movePiece = (startStack, endStack) => {
 
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = (startStack, endStack) => {
+const isLegal = (start, end) => {
   // Your code here
+  if(stacks[end].length === 0 || stacks[start][stacks[start].length - 1] < stacks[end][stacks[end].length - 1]) {
+    return true;
+  } else {
+    console.log("Illegal Move, Try Again");
+    return false;
+  }
+}
 
-  
   // <!-- not allow larger stones on top of smaller stones -->
   //   <!-- stone 4 cannot go on stone 3 -->
 
 
-}
+
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
@@ -73,6 +79,7 @@ const towersOfHanoi = (start, end) => {
   // callback in order movePiece
   movePiece(start, end)  
     // isLegal
+    isLegal(start, end)
     // checkForWin
     // else towersOfHanoi
 
