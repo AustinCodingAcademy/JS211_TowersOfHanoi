@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const { start } = require('repl');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -66,21 +67,32 @@ const isLegal = (start, end) => {
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
+  if (stacks['b'].length === 4) {
+    console.log('winner winner chicken dinner!')
+    return true
+  } else {
+    return false
+  }
+  }
   
 // <!--when all stones have been moved to a new stack that wasn't the starting stack-->
 // <!--check for win-->
 // <!--when stack B or C = [4, 3, 2, 1]-->
 
-}
 
 // When is this function called? What should it do with its argument?
-const towersOfHanoi = (startStack, endStack) => {
+const towersOfHanoi = (start, end) => {
   // Your code here
   // stack.appendChild(stone)
   // callback in order movePiece 
-  movePiece(startStack, endStack)
-  // isLegal
+  if (isLegal(start, end)){
   // checkForWin
+  movePiece(start, end)
+  // isLegal
+  checkForWin(start, end)
+  } else {
+    towersOfHanoi()
+  }
   // else towersOfHanoi
 }
 
