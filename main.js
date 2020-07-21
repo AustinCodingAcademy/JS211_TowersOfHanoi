@@ -29,15 +29,30 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
+// let startStack = first entered stack 
+// let endStack = second entered stack 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // <!--move last stones in 'stack' to a new stack-->
-  // putting last stone in a stack into a bucket (var)
-  // <!--lastChild = stack.lastElementChild()-->
-}
+const movePiece = (startStack, endStack) => {
+  // Your code here
+  stacks[endStack].push(stacks[startStack].pop())
+  }
+  // // <!--move last stones in 'stack' to a new stack-->
+  // // putting last stone in a stack into a bucket (var)
+  // // <!--lastChild = stack.lastElementChild()-->
+  // let stone = null
+  // // let startStack = document.getElementById()
+  // if(stone) {  //if stone is truthy or falsey
+  // endStack.appendChild(stone)
+  // stone = null
+  // } else {
+  // let lastChild = startStack.lastElementChild
+  // stone = startStack.removeChild(lastChild)
+  // }
+
+
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (startStack, endStack) => {
   // <!--not allow larger stones on top of smaller stones-->
   // <!--stone 4 cannot go on stone 3-->
 }
@@ -55,6 +70,7 @@ const towersOfHanoi = (startStack, endStack) => {
   // Your code here
   // stack.appendChild(stone)
   // callback in order movePiece 
+  movePiece(startStack, endStack)
   // isLegal
   // checkForWin
   // else towersOfHanoi
