@@ -30,25 +30,14 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
-// let startStack = first entered stack 
-// let endStack = second entered stack 
+
 // Next, what do you think this function should do?
 const movePiece = (startStack, endStack) => {
-  // Your code here
   stacks[endStack].push(stacks[startStack].pop())
   }
-  // // <!--move last stones in 'stack' to a new stack-->
-  // // putting last stone in a stack into a bucket (var)
-  // // <!--lastChild = stack.lastElementChild()-->
-  // let stone = null
-  // // let startStack = document.getElementById()
-  // if(stone) {  //if stone is truthy or falsey
-  // endStack.appendChild(stone)
-  // stone = null
-  // } else {
-  // let lastChild = startStack.lastElementChild
-  // stone = startStack.removeChild(lastChild)
-  // }
+    //popping from startStack and pushing to endStack
+    //move last stones in 'stack' to a new stack
+    // putting last stone in a stack into a bucket (var)
 
 
 
@@ -61,8 +50,9 @@ const isLegal = (start, end) => {
     return false
   }
 }
-  // <!--not allow larger stones on top of smaller stones-->
-  // <!--stone 4 cannot go on stone 3-->
+  // if thing is in hand, and endStack is empty or thing is in hand and is smaller than last thing in endStack place thing from hand to endStack
+  // not allow larger stones on top of smaller stones
+  // stone 4 cannot go on stone 3
 
 
 // What is a win in Towers of Hanoi? When should this function run?
@@ -75,20 +65,18 @@ const checkForWin = () => {
   }
   }
   
-// <!--when all stones have been moved to a new stack that wasn't the starting stack-->
-// <!--check for win-->
-// <!--when stack B or C = [4, 3, 2, 1]-->
+  // at any point if stacks length is equal to 4 things it's a win, else keep playing
+  // when all stones have been moved to a new stack that wasn't the starting stack
+  // when stack B or C = [4, 3, 2, 1]
 
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (start, end) => {
-  // Your code here
-  // stack.appendChild(stone)
-  // callback in order movePiece 
-  if (isLegal(start, end)){
-  // checkForWin
-  movePiece(start, end)
   // isLegal
+  if (isLegal(start, end)){
+  // movePiece
+  movePiece(start, end)
+  //checkForWin
   checkForWin(start, end)
   } else {
     towersOfHanoi()
