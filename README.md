@@ -48,6 +48,8 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
  
 
 1. 10pts - **Move Blocks** - User can move "blocks" from column to column
+
+
 1. 20pts - **Illegal Moves** - Prevents larger blocks from stacking on smaller blocks
 1. 20pts - **Notifies winner** - When all the blocks are stacked into column 2 or 1 the user is alerted they won!
 1. 20pts - **Minimum 3 Unit Tests** - Should be attached to your file the same way Tic, Tac, Toe, PigLatin or Rock Paper Scissors is done.
