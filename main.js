@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//STARTING CODING LADY!!! 
+
 // An object that represents the three stacks of Towers of Hanoi; 
   // * each key is an array of Numbers: 
     // * A is the far-left, 
