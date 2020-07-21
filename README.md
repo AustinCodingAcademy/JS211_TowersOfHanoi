@@ -41,7 +41,7 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 
 <!--when all stones have been moved to a new stack that wasn't the starting stack-->
 <!--check for win-->
-<!--when stack B or C = [4, 3, 2, 1]>
+<!--when stack B or C = [4, 3, 2, 1]-->
 
 1. 10pts - **Move Blocks** - User can move "blocks" from column to column
 

@@ -31,26 +31,33 @@ const printStacks = () => {
 
 // Next, what do you think this function should do?
 const movePiece = () => {
-  // Your code here
-
+  // <!--move last stones in 'stack' to a new stack-->
+  // putting last stone in a stack into a bucket (var)
+  // <!--lastChild = stack.lastElementChild()-->
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = () => {
-  // Your code here
-
+  // <!--not allow larger stones on top of smaller stones-->
+  // <!--stone 4 cannot go on stone 3-->
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
+// <!--when all stones have been moved to a new stack that wasn't the starting stack-->
+// <!--check for win-->
+// <!--when stack B or C = [4, 3, 2, 1]-->
 
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-
+  // stack.appendChild(stone)
+  // callback in order movePiece 
+  // isLegal
+  // checkForWin
+  // else towersOfHanoi
 }
 
 const getPrompt = () => {
