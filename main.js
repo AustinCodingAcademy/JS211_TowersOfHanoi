@@ -22,6 +22,8 @@ let stacks = {
   c: []
 };
 
+let maxcontent = stacks.a.length
+
 // Start here. What is this function doing?
 const printStacks = () => {
   console.log("a: " + stacks.a);
@@ -29,27 +31,44 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
-// Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
+let storedRingA;
+let storedRingB;
 
+// Next, what do you think this function should do?
+// movePiece should move numbers from one array to another array within the object
+const movePiece = (ringA, ringB) => {
+  ringB.push(storedRingA)
+   
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
+//
+const isLegal = (startStack, endStack) => {
+    
+  storedRingA = startStack.pop(); //2
+  storedRingB = endStack.slice(-1); //1
 
+  if ((storedRingA < storedRingB) || (endStack.length === 0)) {
+    return movePiece(startStack, endStack)
+  } else {
+     startStack.push(storedRingA)
+    console.log('********move is illegal*******')
+  }
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
+  
 
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  let firstStack = stacks[startStack]
+  let secondStack = stacks[endStack]
+  isLegal(firstStack, secondStack)
 
 }
 

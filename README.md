@@ -165,3 +165,39 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+
+
+
+
+### Code Plan
+
+**************movePiece function***************
+needs parameters to accept isLegal arguments
+needs to be able to take the top-most ring(end of the array)
+needs to be able store a ring
+needs to be able place a ring at the top most position(end of the array)
+needs to check for win
+
+**************isLegal function***************
+needs parameters to accept towersOfHonoi arguments
+needs to check if numerical value of last ring is less than the one before else do not issue move
+return back to the towersOfHonoi function
+if not cool then go back to the start of towerOfHonoi
+if cool then go to movePiece
+needs to pass startstack and endstack to movePiece
+
+**************checkForWin function***************
+needs parameters to accept movePiece arguments
+needs to compare current towers 
+if (a has to be empty) then detect win
+if win detected display message
+if win not detected then go back towerOfHonoi
+
+**************towersOfHanoi function***************
+need to check for isLegal
+
+**************THE FLOW JAM!!***************
+The arguments get passed to isLegal then from there get passed movePiece then gets passed to checkforWin, then if cool display message, if not cool then go back to towersOfHonoi
+
+
