@@ -32,16 +32,22 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
+const movePiece = (startStack,endStack) => {
+  // pop off of start stack and push to end stack
+  stacks[endStack].push(stacks[startStack].pop()) 
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
 
-}
+const isLegal = (firstMove, secondMove) => {
+  
+    if(!(stacks[secondMove].length) || (stacks[secondMove][stacks[secondMove].length -1] > stacks[firstMove][stacks[firstMove].length -1])){
+      return true 
+    } else {
+      return false
+    }
+  }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
@@ -50,10 +56,18 @@ const checkForWin = () => {
 }
 
 // When is this function called? What should it do with its argument?
-const towersOfHanoi = (startStack, endStack) => {
+
+const towersOfHanoi = (start, end) => {
   // Your code here
+  if(isLegal(start, end)) {
+    movePiece(start, end) 
+  } else {
+    console.log("try again idiot")
+  }
+  
 
 }
+
 
 const getPrompt = () => {
   printStacks();
