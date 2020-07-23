@@ -51,8 +51,13 @@ const isLegal = (firstMove, secondMove) => {
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
-
+  if((stacks['a'].length == 0) && (stacks['b'].length || stacks['c'].length == 4)){
+    console.log('smarty pants!')
+     return true
+      } else {
+        console.log('nope! Try again Bro!')
+        return false
+      }
 }
 
 // When is this function called? What should it do with its argument?
@@ -61,11 +66,10 @@ const towersOfHanoi = (start, end) => {
   // Your code here
   if(isLegal(start, end)) {
     movePiece(start, end) 
+    checkForWin ()
   } else {
     console.log("try again idiot")
   }
-  
-
 }
 
 
