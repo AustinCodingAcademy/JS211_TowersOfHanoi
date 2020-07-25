@@ -38,5 +38,53 @@ const dropStone = (rowID, stone) => {
   stone = null
 }
 
+// Next, what do you think this function should do?
+const movePiece = (startStack, endStack) => {
+  stacks[endStack].push(stacks[startStack].pop())
+  }
+
+// Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
+const isLegal = (start, end) => {
+  if (stacks[end].length === 0 || stacks[start][stacks[start].length - 1] < stacks[end][stacks[end].length -1]) {
+    return true;
+  } else {
+    console.log("straight to jail");
+    return false
+  }
+}
+
+// What is a win in Towers of Hanoi? When should this function run?
+const checkForWin = () => {
+  if (stacks['b'].length === 4) {
+    console.log('winner winner chicken dinner!')
+    return true
+  } else {
+    return false
+  }
+  }
+
+const towersOfHanoi = (start, end) => {
+  // isLegal
+  if (isLegal(start, end)){
+  // movePiece
+  movePiece(start, end)
+  //checkForWin
+  checkForWin(start, end)
+  } else {
+    towersOfHanoi()
+  }
+  // else towersOfHanoi
+}
+
+const getPrompt = () => {
+  printStacks();
+  rl.question('start stack: ', (startStack) => {
+    rl.question('end stack: ', (endStack) => {
+      towersOfHanoi(startStack, endStack);
+      getPrompt();
+    });
+  });
+}
+
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 

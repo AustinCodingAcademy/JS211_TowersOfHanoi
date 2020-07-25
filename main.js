@@ -98,6 +98,25 @@ const getPrompt = () => {
 
 if (typeof describe === 'function') {
 
+  describe('#movePiece', () => {
+    it('stack.a should start with all 4 pieces', () => {
+    stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+    };
+    });
+    });
+
+    // test for printStacks
+describe('#printStacks()', () => {
+  it('should print out all stacks', () => {
+  console.log("a: " + stacks.a);
+  console.log("b: " + stacks.b);
+  console.log("c: " + stacks.c);
+  });
+});
+
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
