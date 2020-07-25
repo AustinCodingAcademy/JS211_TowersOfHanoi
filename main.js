@@ -29,27 +29,75 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 }
 
+// let startStack = first entered stack
+// let endStack = second entered stack
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
   // Your code here
+  stacks[endStack].push(stacks[startStack].pop())
+  }
 
-}
+  // popping from startStack and pushing to endStack
+  
+
+
+
+
+
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (start, end) => {
   // Your code here
-
+  if(stacks[end].length === 0 || stacks[start][stacks[start].length - 1] < stacks[end][stacks[end].length - 1]) {
+    return true;
+  } else {
+    console.log("Illegal Move, Try Again");
+    return false;
+  }
 }
+
+//  if thing is in hand, and endStack is empty, or thing in hand is smaller than last thing in endStack place thing from hand to endStack
+  // <!-- not allow larger stones on top of smaller stones -->
+  //   <!-- stone 4 cannot go on stone 3 -->
+
+
+
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
+
+  // at any point if stacks length is equal to 4 things YOU WIN! else keep playing
+  if (stacks['b'].length === 4) {
+    console.log("Winner!")
+    return true
+  } else {
+    return false
+  }
+
+
   // Your code here
+  // <!-- when all stones have been moved to a new stack that wasnt the starting stack -->
+  //  <!-- check for winner -->
+  //   <!-- when stack B or C = [4, 3, 2, 1] => WINNER! -->
+
+ 
 
 }
 
 // When is this function called? What should it do with its argument?
-const towersOfHanoi = (startStack, endStack) => {
+const towersOfHanoi = (start, end) => {
   // Your code here
+  // <!-- stack.appendChild(stone) -->
+
+     // isLegal
+    if (isLegal(start, end)) {
+    // callback in order movePiece
+    movePiece(start, end)  
+ 
+    // checkForWin
+    checkForWin(start, end)
+    }
+    // else towersOfHanoi
 
 }
 
