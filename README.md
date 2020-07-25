@@ -16,12 +16,12 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 
 <!-- This is for their personal navigation through the project. They can go through and make sure they get each thing and can comb over it later.  -->
 
-1. 20pts - **Code Plan** - Include this in a `README.md` file in your folder with comments in your code
-1. 10pts - **Move Blocks** - User can move "blocks" from column to column
-1. 20pts - **Illegal Moves** - Prevents larger blocks from stacking on smaller blocks
-1. 20pts - **Notifies winner** - When all the blocks are stacked into column 2 or 1 the user is alerted they won!
-1. 20pts - **Minimum 3 Unit Tests** - Should be attached to your file the same way Tic, Tac, Toe, PigLatin or Rock Paper Scissors is done.
-1. 10pts - **Graphical User Interface** - Take this game out of the terminal by adding a User Interface that uses `towersOfHanoi()` function in `index.js`.
+1. 20pts - **Code Plan** - Include this in a `README.md` file in your folder with comments in your code //yes
+1. 10pts - **Move Blocks** - User can move "blocks" from column to column //yes
+1. 20pts - **Illegal Moves** - Prevents larger blocks from stacking on smaller blocks //yes
+1. 20pts - **Notifies winner** - When all the blocks are stacked into column 2 or 1 the user is alerted they won! //yes
+1. 20pts - **Minimum 3 Unit Tests** - Should be attached to your file the same way Tic, Tac, Toe, PigLatin or Rock Paper Scissors is done. //yes
+1. 10pts - **Graphical User Interface** - Take this game out of the terminal by adding a User Interface that uses `towersOfHanoi()` function in `index.js`. // no
 
 * **Extended Practice Bonus!!**
   * Keeps count of moves as player plays games
@@ -162,3 +162,39 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+
+
+
+
+### Code Plan
+
+**************movePiece function***************
+needs parameters to accept isLegal arguments
+needs to be able to take the top-most ring(end of the array)
+needs to be able store a ring
+needs to be able place a ring at the top most position(end of the array)
+needs to check for win
+
+**************isLegal function***************
+needs parameters to accept towersOfHonoi arguments
+needs to check if numerical value of last ring is less than the one before else do not issue move
+return back to the towersOfHonoi function
+if not cool then go back to the start of towerOfHonoi
+if cool then go to movePiece
+needs to pass startstack and endstack to movePiece
+
+**************checkForWin function***************
+needs parameters to accept movePiece arguments
+needs to compare current towers 
+if (a has to be empty) then detect win
+if win detected display message
+if win not detected then go back towerOfHonoi
+
+**************towersOfHanoi function***************
+need to check for isLegal
+
+**************THE FLOW JAM!!***************
+The arguments get passed to isLegal then from there get passed movePiece then gets passed to checkforWin, then if cool display message, if not cool then go back to towersOfHonoi
+
+
