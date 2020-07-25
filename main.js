@@ -72,6 +72,7 @@ const checkForWin = () => {
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (start, end) => {
+
   // isLegal
   if (isLegal(start, end)){
   // movePiece
@@ -98,6 +99,7 @@ const getPrompt = () => {
 
 if (typeof describe === 'function') {
 
+    //my test for movePiece 
   describe('#movePiece', () => {
     it('stack.a should start with all 4 pieces', () => {
     stacks = {
@@ -108,7 +110,7 @@ if (typeof describe === 'function') {
     });
     });
 
-    // test for printStacks
+    // my test for printStacks
 describe('#printStacks()', () => {
   it('should print out all stacks', () => {
   console.log("a: " + stacks.a);
@@ -150,6 +152,13 @@ describe('#printStacks()', () => {
       assert.equal(checkForWin(), false);
     });
   });
+    //my test for obvious part of check for win...
+  it('stack.a should equal 0, stack b can win', () => {
+    stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+    assert.equal(checkForWin(), true);
+    stacks = { a: [1], b: [], c: [4, 3, 2] };
+    assert.equal(checkForWin(), false);
+    });
 
 } else {
 
