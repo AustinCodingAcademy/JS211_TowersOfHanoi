@@ -16,42 +16,56 @@ const rl = readline.createInterface({
         // * 4 is the largest, 
         // * 1 is the smallest
 
-let stacks = {
-  a: [4, 3, 2, 1],
-  b: [],
-  c: []
-};
-
-// Start here. What is this function doing?
-const printStacks = () => {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
-}
-
-// Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
-
-}
-
-// Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
-
-}
-
-// What is a win in Towers of Hanoi? When should this function run?
-const checkForWin = () => {
-  // Your code here
-
-}
-
-// When is this function called? What should it do with its argument?
-const towersOfHanoi = (startStack, endStack) => {
-  // Your code here
-
-}
+        let stacks = {
+          a: [4, 3, 2, 1],
+          b: [],
+          c: []
+        };
+        
+        // Start here. What is this function doing?
+        const printStacks = (flag) => {
+          if (flag) {
+            console.log('---------------------------------------------------------------------')
+            console.log('YOU WON!! I would give you a cookie for this achievement, but I have already eaten the cookie... I probably shouLd not have mentioned the cookie in the first place huh... Listen I am sorry that you did not get the cookie but maybe the real reward here was not getting the cookie, ya know? .... Think of it like I am sparing you the calories of a cookie, but you can be comforted with the thought that you would have gotten a cookie, so really when you think about it I did you a favor... Your welcome!! ... BUT when you REALLY think about it, I think you owe ME a cookie for not giving YOU a cookie, sooooo I will take a snickerdoodle, THANK YOU!!')
+            console.log('---------------------------------------------------------------------')
+          } else {
+          console.log("a: " + stacks.a);
+          console.log("b: " + stacks.b);
+          console.log("c: " + stacks.c);
+          }
+        }
+        
+        const movePiece = (startStack,endStack) => {
+          // pop off of start stack and push to end stack
+          stacks[endStack].push(stacks[startStack].pop())
+          checkForWin()
+        }
+        
+        const isLegal = (firstMove, secondMove) => {
+          if(!(stacks[secondMove].length) || (stacks[secondMove][stacks[secondMove].length -1] > stacks[firstMove][stacks[firstMove].length -1])){
+            return true
+          } else {
+            return false
+          }
+        }
+        
+        const checkForWin = () => {
+          if (stacks.a.length == 0 && stacks.b.length == 4 || stacks.c.length == 4){
+            printStacks(true)
+            return true
+          } else {
+            return false
+          }
+        }
+        
+        const towersOfHanoi = (start, end) => {
+          // Your code here
+          if(isLegal(start, end)) {
+          movePiece(start, end)
+          } else {
+          console.log("------ Invalid Move ------")
+          }
+        }
 
 const getPrompt = () => {
   printStacks();

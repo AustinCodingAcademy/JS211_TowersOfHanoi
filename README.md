@@ -38,6 +38,14 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 
 <!-- There should be clear step by step instruction so the material can be asynchronously consumed. This will significantly help our students learn, review and improve your teaching experience.  -->
 
+
+
+
+
+
+
+
+
 1. Once you understand the game, whiteboard the logic.
 1. Create a list of steps your app need to do.
 1. Translate to psuedo code.
