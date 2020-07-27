@@ -88,6 +88,23 @@ if (typeof describe === 'function') {
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
+  describe('#movePiece', () => {
+    it('stack.a should start with all 4 pieces', () => {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+    });
+  });
+
+  describe('#printStacks()', () => {
+    it('should print out all stacks', () => {
+      console.log("a: " + stacks.a);
+      console.log("b: " + stacks.b);
+      console.log("c: " + stacks.c);
+    });
+  });
 
   describe('#isLegal()', () => {
     it('should not allow an illegal move', () => {
@@ -114,6 +131,12 @@ if (typeof describe === 'function') {
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
+    it('stack.a should equal 0, stack b can win', () => {
+      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
+      stacks = { a: [1], b: [], c: [4, 3, 2] };
+      assert.equal(checkForWin(), false);
+      });
   });
 
 } else {
