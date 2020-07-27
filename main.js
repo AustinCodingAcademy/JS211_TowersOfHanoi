@@ -37,9 +37,7 @@ const movePiece = (startStack, endStack) => {
   }
     //popping from startStack and pushing to endStack
     //move last stones in 'stack' to a new stack
-    // putting last stone in a stack into a bucket (var)
-
-
+    
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (start, end) => {
@@ -57,7 +55,7 @@ const isLegal = (start, end) => {
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  if (stacks['b'].length === 4) {
+  if (stacks['b'].length === 4) {  //should I also add OR stack c = 4?
     console.log('winner winner chicken dinner!')
     return true
   } else {
