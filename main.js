@@ -8,13 +8,13 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// An object that represents the three stacks of Towers of Hanoi; 
-  // * each key is an array of Numbers: 
-    // * A is the far-left, 
-    // * B is the middle, 
+// An object that represents the three stacks of Towers of Hanoi;
+  // * each key is an array of Numbers:
+    // * A is the far-left,
+    // * B is the middle,
     // * C is the far-right stack
-      // * Each number represents the largest to smallest tokens: 
-        // * 4 is the largest, 
+      // * Each number represents the largest to smallest tokens:
+        // * 4 is the largest,
         // * 1 is the smallest
 
 let stacks = {
@@ -37,7 +37,6 @@ const movePiece = (startStack, endStack) => {
   }
     //popping from startStack and pushing to endStack
     //move last stones in 'stack' to a new stack
-    
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (start, end) => {
@@ -62,7 +61,6 @@ const checkForWin = () => {
     return false
   }
   }
-  
   // at any point if stacks length is equal to 4 things it's a win, else keep playing
   // when all stones have been moved to a new stack that wasn't the starting stack
   // when stack B or C = [4, 3, 2, 1]
