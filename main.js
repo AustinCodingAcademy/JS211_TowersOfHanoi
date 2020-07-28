@@ -68,6 +68,7 @@ const towersOfHanoi = (start, end) => {
   } else {
   console.log("try again idiot")
   }
+}
   
   // Your code here
 
@@ -124,5 +125,5 @@ if (typeof describe === 'function') {
 } else {
 
   getPrompt();
-
 }
+
