@@ -6,7 +6,7 @@
 
 ## JavaScript 211 Project: Towers of Hanoi
 
-## Overview
+
 
 * [Towers of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a simple logic game involving three stacks. The first stack has four (or more) blocks, each one bigger than the next, stacked like a pyramid. The point of the game is to move the blocks from one stack and arrange them in the same order into another stack, but never placing a larger block onto a smaller block. You can play the game [here](http://vornlocher.de/tower.html) to get an idea.
 
@@ -17,7 +17,34 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 <!-- This is for their personal navigation through the project. They can go through and make sure they get each thing and can comb over it later.  -->
 
 1. 20pts - **Code Plan** - Include this in a `README.md` file in your folder with comments in your code
+<!--create array for each 'stack'-->
+  <!--call 'stacks' [a, b, c]-->
+
+<!--create stone objects-->
+  <!--call 'stones' (1, 2, 3, 4)-->
+
+<!--establish which 'stack' the stones start in-->
+  <!--start in stack a-->
+
+<!-- sort stones largest to smallest with smallest being last on stack-->
+  <!--put in reverse order(4,3,2,1)-->
+
+<!--move last stones in 'stack' to a new stack-->
+  <!--lastChild = stack.lastElementChild()-->
+  <!--stack.appendChild(stone)--> 
+
+<!--not allow larger stones on top of smaller stones-->
+  <!--stone 4 cannot go on stone 3-->
+
+<!--establish which 'stack' the 'blocks' end-->
+<!--stack b or c-->
+
+<!--when all stones have been moved to a new stack that wasn't the starting stack-->
+<!--check for win-->
+<!--when stack B or C = [4, 3, 2, 1]-->
+
 1. 10pts - **Move Blocks** - User can move "blocks" from column to column
+
 1. 20pts - **Illegal Moves** - Prevents larger blocks from stacking on smaller blocks
 1. 20pts - **Notifies winner** - When all the blocks are stacked into column 2 or 1 the user is alerted they won!
 1. 20pts - **Minimum 3 Unit Tests** - Should be attached to your file the same way Tic, Tac, Toe, PigLatin or Rock Paper Scissors is done.
@@ -70,6 +97,8 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 1. Achieve green checks for each of your unit tests.
 
 ### Hints
+
+hellow how are you 
 
 1. Run your unit tests first!!
 1. Use [repl.it](https://www.repl.it) to write the solution code first. (its a faster environment vs using the `node main.js` command over and over again.)
