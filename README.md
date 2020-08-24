@@ -162,3 +162,31 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+
+//      Test condition:
+//        1) should not allow an illegal move
+//        2) should allow a legal move
+// 3. checkForWin -  conditionals - if stack.c has all blocks stacked from largest to smallest
+//      Test condition:
+//        3) should detect a win
+// 4. stackTracker - codepen - track the blocks and what row/stack they are going to and then remove the previos block 
+//      Test condition: 
+//        4) should be able to move a block
+//      codepen
+
+
+// let stone = null
+
+// function handleStone(id) {
+//   console.log("hello 1")
+//   let row = document.getElementById(id)
+//   if(stone) {
+//     console.log("hello 2")
+//     row.appendChild(stone)
+//     stone = null
+//   } else {
+//     console.log("hello 3")
+//     stone = row.removeChild(row.lastChild)
+//   }
+// }
