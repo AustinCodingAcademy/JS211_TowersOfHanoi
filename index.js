@@ -25,7 +25,7 @@ const selectRow = (row) => {
 // but there might be something wrong with it...
 const pickUpStone = (rowID) => {
   const selectedRow = document.getElementById(rowID);
-  stone = selectedRow.removeChild(selectedRow.lastChild);
+  let stone = selectedRow.removeChild(selectedRow.lastChild);
   console.log(stone)
 }
 
