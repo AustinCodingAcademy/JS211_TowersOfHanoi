@@ -1,0 +1,37 @@
+#rod1, #rod2, #rod3 {
+  float: left;
+  width: 180px;
+  height: 150px;
+  margin: 10px;
+  padding: 0px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;  
+}
+
+
+#d1, #d2, #d3 {
+  height: 40px;
+}
+
+#d1 {
+width: 50px;
+background-color: red;
+}
+
+
+#d2 {  
+  width: 100px;
+  background-color: blue;  
+}
+
+ #d3 {    
+    width: 150px;
+    background-color: lightgreen;    
+ }
+
+    
+    
+  
