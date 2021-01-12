@@ -8,16 +8,21 @@
   </head>
   <body>
     <h1>Towers Of Hanoi</h1>
-    <hr/>
-      <div id="top-row" data-row="top" class="red row" onclick="selectRow(this)"></div>
-      <div id="middle-row" data-row="middle" class="yellow row" onclick="selectRow(this)"></div>
-      <div id="bottom-row" class="green row" data-row="bottom" onclick="selectRow(this)">
-        <div id="4" data-size="4" data-color="yellow" class="stone" ></div>
-        <div id="3" data-size="3" data-color="red" class="stone" ></div>
-        <div id="2" data-size="2" data-color="green" class="stone" ></div>
-        <div id="1" data-size="1" data-color="blue" class="stone" ></div>
+    <hr class="topHr"/>
+    <main>
+      <div id="rows-containter">
+        <div id="top-row" data-row="top" class="dark-blue row" onclick="selectRow(this)"></div>
+        <div id="middle-row" data-row="middle" class="middle-blue row" onclick="selectRow(this)"></div>
+        <div id="bottom-row" class="light-blue row" data-row="bottom" onclick="selectRow(this)">
+          <div id="4" data-size="4" data-color="brown" class="stone" ></div>
+          <div id="3" data-size="3" data-color="grey" class="stone" ></div>
+          <div id="2" data-size="2" data-color="grey-blue" class="stone" ></div>
+          <div id="1" data-size="1" data-color="mauve" class="stone" ></div>
+        </div>
       </div>
-    <hr/>
+    </main>
+    <hr class="bottomHr"/>
+    <footer>Created with love by Ariel Holman</footer>
   </body>
 </html>
 

@@ -1,3 +1,33 @@
+body{
+  background-image: url(./images/towers3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: auto;
+  text-align: center;
+  margin: 0pt;
+}
+
+#rows-containter{
+  display: flex;
+  flex-direction: column;
+  transform: rotate(270deg);
+  justify-content: center;
+  align-items: center;
+  padding-right: 350pt;
+}
+
+
+.topHr{
+  width: 220pt;
+  height: 2pt;
+}
+
+.bottomHr {
+  width: 1000pt;
+  margin-top: 250pt;
+}
 [data-row] {
   display: flex;
   justify-content: flex-start;
@@ -11,16 +41,22 @@
   z-index: -10;
 }
 
-[data-row].red {
-  background-color: #f6c5c5;
+[data-row].dark-blue {
+  background-color: #6C96A7;
+  width: 250pt;
+  padding: 5pt;
 }
 
-[data-row].yellow {
-  background-color: #ffffa9;
+[data-row].middle-blue {
+  background-color: #97B0BF;
+  width: 250pt;
+  padding: 5pt;
 }
 
-[data-row].green {
-  background-color: #baf6ba;
+[data-row].light-blue {
+  background-color: #B9C5CD;
+  width: 250pt;
+  padding: 5pt;
 }
 
 [data-row].blue {
@@ -32,28 +68,28 @@
 }
 
 [data-color] {
-  width: 25px;
+  width: 35px;
   float: left;
 }
 
-[data-color="blue"] {
-  height: 33px;
-  background-color: blue;
+[data-color="mauve"] {
+  height: 34px;
+  background-color: #9F9298;
 }
 
-[data-color="green"] {
-  height: 33px;
-  background-color: green;
+[data-color="grey-blue"] {
+  height: 39px;
+  background-color: #415566;
 }
 
-[data-color="red"] {
-  height: 33px;
-  background-color: red;
+[data-color="grey"] {
+  height: 44px;
+  background-color: #A0A49F;
 }
 
-[data-color="yellow"] {
-  height: 33px;
-  background-color: yellow;
+[data-color="brown"] {
+  height: 50px;
+  background-color: #5F4C47;
 }
 
 #announce-game-won {
