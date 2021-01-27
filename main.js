@@ -35,7 +35,7 @@ const movePiece = () => {
 
 }
 
-// Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
+// Before you move, should you check if the move is actually allowed? Should 3 be able to be stacked on 2?
 const isLegal = () => {
   // Your code here
 
