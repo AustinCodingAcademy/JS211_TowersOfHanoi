@@ -25,10 +25,10 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 
 * **Extended Practice Bonus!!**
   * Keeps count of moves as player plays games
-  * Sound Effects
-  * Peaceful Background
+  * Sound effects
+  * Peaceful background
   * Vertical columns
-  * Proportional Stones/tokens
+  * Proportional stones/tokens
 
 ### Example
 
@@ -39,31 +39,29 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 <!-- There should be clear step by step instruction so the material can be asynchronously consumed. This will significantly help our students learn, review and improve your teaching experience.  -->
 
 1. Once you understand the game, whiteboard the logic.
-1. Create a list of steps your app need to do.
-1. Translate to psuedo code.
-1. Translate to JavaScript on paper
+1. Create a list of steps your app needs to do.
+1. Translate to pseudo code.
+1. Translate to JavaScript on paper.
 1. Write 3 tests for the app.
 1. Build Towers of Hanoi, so it passes all the tests.
 1. Create a new branch called " checkpoint-1 "
 1. Build toward the tests.
 1. Use the starter code below:
 
-### Follow-up Video
-
-<iframe src="https://player.vimeo.com/video/339373348" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+### [Follow-up Video](https://player.vimeo.com/video/339373348)
 
 ******
 
 ### Getting Started
 
-1. Fork and Clone [Towers of Hanoi Repo](https://github.com/AustinCodingAcademy/JS211_TowersOfHanoi.git)
+1. Fork and clone [Towers of Hanoi Repo](https://github.com/AustinCodingAcademy/JS211_TowersOfHanoi.git)
 1. Ensure you have installed all dependencies/packages: `npm i`
-1. Look at the Unit Test, see what is being called, passed as input arguments, and what the expected result are.
+1. Look at the Unit Test, see what is being called, passed as input arguments, and what the expected results are.
 1. Ensure you know how to run the unit test:
     * `npm test main.js`
 1. Use a whiteboard to work out a solution to building the Pig Latin program
-1. Translate the broad ideas to psuedo code
-1. Convert the psuedo code to real JavaScript Code
+1. Translate the broad ideas to pseudo code
+1. Convert the pseudo code to real JavaScript Code
 1. Type into your text editor the JavaScript code you've come up with one step at a time
 1. Work through your bugs.
 1. Use `node main.js` to run the game.
@@ -72,7 +70,7 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 ### Hints
 
 1. Run your unit tests first!!
-1. Use [repl.it](https://www.repl.it) to write the solution code first. (its a faster environment vs using the `node main.js` command over and over again.)
+1. Use [repl.it](https://www.repl.it) to write the solution code first. (it's a faster environment vs using the `node main.js` command over and over again.)
 1. Read the comments in `main.js`
 1. Push yourself further.
 1. Look at your hints!
@@ -147,12 +145,12 @@ example `node 01week/rockPaperScissors.js`
 
 ### Running Tests
 
-Tests are a great way to make sure you code works the way you planned it would,
+Tests are a great way to make sure your code works the way you planned it would,
 and to make sure you don't break something in the future. We will be using them
 to test our understanding of the lesson. It's also our main way to assign grades
 for an assignment.
 
-To run a the tests on a file run `npm test path/to/file.js`, etc.
+To run the tests on a file run `npm test path/to/file.js`, etc.
 
 ### Running the Linter
 
