@@ -1,9 +1,8 @@
 'use strict';
 
-import { deepEqual, equal } from 'assert';
-import { appendFileSync } from 'fs';
-import { createInterface } from 'readline';
-const rl = createInterface({
+const assert = require('assert');
+const readline = require('readline');
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -143,7 +142,7 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
 
@@ -154,7 +153,7 @@ if (typeof describe === 'function') {
         b: [1],
         c: []
       };
-      equal(isLegal('a', 'b'), false);
+      assert.equal(isLegal('a', 'b'), false);
     });
     it('should allow a legal move', () => {
       stacks = {
@@ -162,15 +161,15 @@ if (typeof describe === 'function') {
         b: [],
         c: []
       };
-      equal(isLegal('a', 'c'), true);
+      assert.equal(isLegal('a', 'c'), true);
     });
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
-      equal(checkForWin(), true);
+      assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
-      equal(checkForWin(), false);
+      assert.equal(checkForWin(), false);
     });
   });
 
@@ -180,7 +179,7 @@ if (typeof describe === 'function') {
     it('should only allow string arguments as the input parameters for isLegal function', function(){
       let actual = isLegal(4, null);
       let expected = false; 
-      equal(actual, expected); 
+      assert.equal(actual, expected); 
     });
 
     it('should verify that the value of each key in stacks object is an array',function(){
@@ -191,7 +190,7 @@ if (typeof describe === 'function') {
       }; 
       let actual = isLegal('a', 'b');
       let expected = false; 
-      equal(actual, expected); 
+      assert.equal(actual, expected); 
     });
 
     it('should properly handle uppercase letters with whitespace for the start and end stacks',function(){
@@ -202,13 +201,13 @@ if (typeof describe === 'function') {
       };
       let actual = isLegal('A   ', '  B');
       let expected = true; 
-      equal(actual, expected); 
+      assert.equal(actual, expected); 
     });
 
     it('should check to see that the player is only using A, B, and C as the start and end stack inputs', function(){
       let actual = isLegal('g', 'f');
       let expected = false; 
-      equal(actual, expected); 
+      assert.equal(actual, expected); 
     });
 
   });

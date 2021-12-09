@@ -14,9 +14,7 @@ const stone = null
 // Open your inspector tool to see what is being captured and can be used.
 const selectRow = (row) => {
   const currentRow = row.getAttribute("data-row")
-  
-  console.log("Yay, we clicked an item", row)
-  console.log("Here is the stone's id: ", row.id)
+  console.log(`the row you clicked on is ${currentRow} row`)
   console.log("Here is the stone's data-size: ", currentRow)
 
   pickUpStone(row.id)
