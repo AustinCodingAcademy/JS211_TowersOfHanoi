@@ -9,6 +9,7 @@
 
 const stone = null
 
+
 // this function is called when a row is clicked. 
 // Open your inspector tool to see what is being captured and can be used.
 const selectRow = (row) => {
