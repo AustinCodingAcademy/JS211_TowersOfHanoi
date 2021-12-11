@@ -20,7 +20,7 @@
 }
 
 [data-row].green {
-  background-color: #baf6ba;
+  background-color: #15e927;
 }
 
 [data-row].blue {
@@ -47,12 +47,12 @@
 
 [data-color="blue"] {
   height: 33px;
-  background-color: blue;
+  background-color: rgb(65, 65, 194);
 }
 
-[data-color="green"] {
+[data-color="orange"] {
   height: 33px;
-  background-color: green;
+  background-color: orange;
 }
 
 [data-color="red"] {
