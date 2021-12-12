@@ -1,7 +1,12 @@
-let stone = null
-
+let stone = null; 
+let moveMessage = ''; 
+let currentStoneSize = null; 
+let droppedRowLastStoneSize = null; 
+let selectedRow = null; 
 
 const selectRow = (row) => {
+  moveMessage = '';
+  document.getElementById("moveMessage").innerHTML = moveMessage
   const currentRow = row.getAttribute("data-row")
   const currentRowId = row.id
   console.log(`the row you clicked on is ${currentRow} row and has id ${currentRowId}`)
@@ -10,14 +15,12 @@ const selectRow = (row) => {
 } 
 
 const pickUpStone = (rowId) => {
-  const selectedRow = document.getElementById(rowId);
+  selectedRow = document.getElementById(rowId);
   console.log(selectedRow);
   stone = selectedRow.removeChild(selectedRow.lastElementChild);
-  console.log(stone)
+  currentStoneSize = parseInt(stone.getAttribute("data-size")); 
+  console.log(stone, currentStoneSize)
 }
-
-// Once you figure that out you'll need to figure out if its a legal move...
-// Something like: if(!stone){pickupStone} else{dropStone}
 
 const dropStone = (row) => {
   const droppedRow = document.getElementById(row.id)
@@ -26,15 +29,23 @@ const dropStone = (row) => {
   if(rowSize === 0){
     droppedRow.appendChild(stone);
     console.log("move successful");
-    document.getElementById("moveMessage").innerHTML = "Successfully moved stone"
+    moveMessage = "Successfully moved stone"; 
+    document.getElementById("moveMessage").innerHTML = moveMessage
+    droppedRowLastStoneSize =  parseInt(droppedRow.lastElementChild.getAttribute('data-size'));
+    stone = null; 
+  }else if(currentStoneSize < droppedRowLastStoneSize){
+    console.log("this is a valid move");
+    moveMessage = "Successfully moved stone"
+    document.getElementById("moveMessage").innerHTML = moveMessage
+    droppedRow.appendChild(stone);
+    stone = null; 
+    currentStoneSize = null; 
+    droppedRowLastStoneSize = null; 
+  }else{
+    selectedRow.appendChild(stone)
+    console.log("invalid move"); 
+    moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack";
+    document.getElementById("moveMessage").innerHTML = moveMessage
   }
-
-  document.getElementById("moveMessage").innerHTML = ""
-  // const currentStoneSize = stone.getAttribute("data-size")
-  // console.log(currentStoneSize)
-  // // if(droppedRow.lastElementChild)
-  // stone = null
 }
-
-// * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 
