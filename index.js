@@ -1,7 +1,6 @@
 let stone = null; 
 let moveMessage = ''; 
 let currentStoneSize = null; 
-let droppedRowLastStoneSize = null; 
 let selectedRow = null; 
 
 const selectRow = (row) => {
@@ -23,7 +22,7 @@ const pickUpStone = (rowId) => {
 }
 
 const dropStone = (row) => {
-  const droppedRow = document.getElementById(row.id)
+  const droppedRow = document.getElementById(row.id);
   const rowSize = droppedRow.childElementCount
   console.log(rowSize)
   if(rowSize === 0){
@@ -31,21 +30,22 @@ const dropStone = (row) => {
     console.log("move successful");
     moveMessage = "Successfully moved stone"; 
     document.getElementById("moveMessage").innerHTML = moveMessage
-    droppedRowLastStoneSize =  parseInt(droppedRow.lastElementChild.getAttribute('data-size'));
     stone = null; 
-  }else if(currentStoneSize < droppedRowLastStoneSize){
+    currentStoneSize = null; 
+  }else if((rowSize > 0) && (parseInt(droppedRow.lastElementChild.innerHTML) > currentStoneSize)){
+    droppedRow.appendChild(stone);
     console.log("this is a valid move");
     moveMessage = "Successfully moved stone"
     document.getElementById("moveMessage").innerHTML = moveMessage
-    droppedRow.appendChild(stone);
     stone = null; 
     currentStoneSize = null; 
-    droppedRowLastStoneSize = null; 
   }else{
     selectedRow.appendChild(stone)
     console.log("invalid move"); 
     moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack";
     document.getElementById("moveMessage").innerHTML = moveMessage
+    stone = null; 
+    currentStoneSize = null; 
   }
 }
 
