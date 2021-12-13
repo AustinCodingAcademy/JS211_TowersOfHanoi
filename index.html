@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>Towers Of Hanoi</h1>
+    <button onclick="resetGame()">Reset Game</button>
     <hr/>
       <div id="top-row" data-row="top" class="red row" onclick="dropStone(this)" ondblclick="selectRow(this)" ></div>
       <div id="middle-row" data-row="middle" class="yellow row" onclick="dropStone(this)" ondblclick="selectRow(this)"  ></div>
@@ -18,7 +19,16 @@
         <div id="1" data-size="1" data-color="blue" class="stone">1</div>
       </div>
     <hr/>
-    <div id="moveMessage"></div>
+    <div id="moveMessage" style="color:black"></div>
+    <br>
+    <div id="instructionsContainer">
+      Game Instructions:
+      <ul id="instructions">
+        <li>Only one stone may be moved at a time. Double click the row/stack to remove the last stone.</li>
+        <li>Place the stone on top of another stack or on an empty row. Do this by single clicking on the new stack.</li>
+        <li>No stone may be placed on top of a stone that is smaller than it.</li>
+      </ul>
+    </div>
   </body>
 </html>
 
