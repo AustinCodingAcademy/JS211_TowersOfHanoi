@@ -4,6 +4,7 @@ let stone = null;
 let moveMessage = ''; 
 let currentStoneSize = null; 
 let selectedRow = null;
+let numberOfMoves = 0; 
 
 // functions 
 
@@ -36,18 +37,22 @@ const dropStone = (row) => {
     document.getElementById("moveMessage").innerHTML = moveMessage
     stone = null; 
     currentStoneSize = null; 
+    numberOfMoves++
+    document.getElementById("moves").innerHTML = numberOfMoves
   }else if((rowSize > 0) && (parseInt(droppedRow.lastElementChild.innerHTML) > currentStoneSize)){
     droppedRow.appendChild(stone);
+    numberOfMoves++
+    document.getElementById("moves").innerHTML = numberOfMoves
     console.log("this is a valid move");
     moveMessage = "Successfully moved stone"
     document.getElementById("moveMessage").innerHTML = moveMessage
-    checkForWin()
+    checkForWin();
     stone = null; 
     currentStoneSize = null; 
   }else{
     selectedRow.appendChild(stone)
     console.log("invalid move"); 
-    moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack";
+    moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack.";
     document.getElementById("moveMessage").innerHTML = moveMessage
     stone = null; 
     currentStoneSize = null; 
@@ -73,7 +78,9 @@ function resetGame(){
   console.log("game reset");
   alert("Game reset");
   moveMessage = '';
+  numberOfMoves = 0; 
   document.getElementById("moveMessage").innerHTML = moveMessage;
+  document.getElementById("moves").innerHTML = numberOfMoves;
   const bottomRow = document.getElementById("bottom-row")
   const middleRow = document.getElementById("middle-row");
   const topRow = document.getElementById("top-row");
