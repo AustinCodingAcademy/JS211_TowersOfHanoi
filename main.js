@@ -100,7 +100,7 @@ const getPrompt = () => {
         printStacks();
         console.log("You Won")
         console.log("Play Again? Or Exit with Ctrl-C")
-        let stacks = {
+        stacks = {
           a: [4, 3, 2, 1],
           b: [],
           c: []
