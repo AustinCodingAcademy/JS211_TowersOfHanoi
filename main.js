@@ -30,19 +30,56 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (x,y) => {
+  if(isLegal(x,y)){
+  // console.log(stacks[x],stacks[y])//had issue with dot notation being undefined
+  stacks[y].push(stacks[x].pop())
+  // console.log(stacks)
   // Your code here
+  }
+  else{
+
+  }
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (x,y) => {
+  //first test is x's stack is not empty then check for size of object being moved
+  //changed first test is actually for checking for correct inputs
+if((x==="a"||x==="b"||x==="c")&&(y==="a"||y==="b"||y==="c")){
+      if(stacks[x][0]===undefined){
+        return false
+      }
+      else if(stacks[x][stacks[x].length-1]>stacks[y][stacks[y].length-1]){
+        return false
+      }
+      else{
+        return true
+      }
+}
+else{
+  return false
+}
   // Your code here
+  //i should not be also be able to pop from an empty array and not be able to stack a larger number to a smaller one
 
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
+//it should run after you move
 const checkForWin = () => {
+  let arr="4,3,2,1"
+  // console.log(stacks.b.toString())
+  if(stacks.b.toString()==arr){
+    return true;
+  }
+  else if(stacks.c.toString()==arr){
+    return true
+  }
+  else{
+    return false
+  }
   // Your code here
 
 }
@@ -50,7 +87,8 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-
+  movePiece(startStack,endStack)
+  // checkForWin();
 }
 
 const getPrompt = () => {
@@ -58,7 +96,20 @@ const getPrompt = () => {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      getPrompt();
+      if(checkForWin()){
+        printStacks();
+        console.log("You Won")
+        console.log("Play Again? Or Exit with Ctrl-C")
+        stacks = {
+          a: [4, 3, 2, 1],
+          b: [],
+          c: []
+        };
+        getPrompt();
+      }
+      else{
+        getPrompt();
+      }
     });
   });
 }
