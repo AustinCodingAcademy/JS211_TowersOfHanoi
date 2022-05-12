@@ -30,13 +30,16 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (x,y) => {
+  // isLegal(x,y);
+  console.log(stacks[x],stacks[y])
+  y.push(x.pop())
   // Your code here
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (x,y) => {
   // Your code here
 
 }
@@ -50,6 +53,8 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  movePiece(startStack,endStack)
+
 
 }
 
