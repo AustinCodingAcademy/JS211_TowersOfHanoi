@@ -99,7 +99,8 @@ const getPrompt = () => {
       if(checkForWin()){
         printStacks();
         console.log("You Won")
-        console.log()
+        console.log("Play Again? Or Exit with Ctrl-C")
+        getPrompt();
       }
       else{
         getPrompt();
