@@ -31,15 +31,22 @@ const printStacks = () => {
 
 // Next, what do you think this function should do?
 const movePiece = (x,y) => {
-  // isLegal(x,y);
-  console.log(stacks[x],stacks[y])
-  y.push(x.pop())
+  // if(isLegal(x,y)){
+  // console.log(stacks[x],stacks[y])//had issue with dot notation being undefined
+  stacks[y].push(stacks[x].pop())
+  console.log(stacks)
   // Your code here
+  // }
+  // else{
+
+  // }
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (x,y) => {
+
+// return true
   // Your code here
 
 }
@@ -54,7 +61,7 @@ const checkForWin = () => {
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
   movePiece(startStack,endStack)
-
+  checkForWin()
 
 }
 
