@@ -47,15 +47,20 @@ const movePiece = (x,y) => {
 const isLegal = (x,y) => {
   //first test is x's stack is not empty then check for size of object being moved
   //changed first test is actually for checking for correct inputs
-  if(stacks[x][0]===undefined){
-    return false
-  }
-  else if(stacks[x][stacks[x].length-1]>stacks[y][stacks[y].length-1]){
-    return false
-  }
-  else{
-    return true
-  }
+if((x==="a"||x==="b"||x==="c")&&(y==="a"||y==="b"||y==="c")){
+      if(stacks[x][0]===undefined){
+        return false
+      }
+      else if(stacks[x][stacks[x].length-1]>stacks[y][stacks[y].length-1]){
+        return false
+      }
+      else{
+        return true
+      }
+}
+else{
+  return false
+}
   // Your code here
   //i should not be also be able to pop from an empty array and not be able to stack a larger number to a smaller one
 
@@ -83,8 +88,7 @@ const checkForWin = () => {
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
   movePiece(startStack,endStack)
-  // checkForWin()
-
+  // checkForWin();
 }
 
 const getPrompt = () => {
@@ -92,7 +96,14 @@ const getPrompt = () => {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      getPrompt();
+      if(checkForWin()){
+        printStacks();
+        console.log("You Won")
+        console.log()
+      }
+      else{
+        getPrompt();
+      }
     });
   });
 }
