@@ -31,28 +31,42 @@ const printStacks = () => {
 
 // Next, what do you think this function should do?
 const movePiece = (x,y) => {
-  // if(isLegal(x,y)){
+  if(isLegal(x,y)){
   // console.log(stacks[x],stacks[y])//had issue with dot notation being undefined
   stacks[y].push(stacks[x].pop())
-  console.log(stacks)
+  // console.log(stacks)
   // Your code here
-  // }
-  // else{
+  }
+  else{
 
-  // }
+  }
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (x,y) => {
+  //first test is x's stack is not empty then check for size of object being moved
 
-// return true
+ return true
   // Your code here
+  //i should not be also be able to pop from an empty array and not be able to stack a larger number to a smaller one
 
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
+//it should run after you move
 const checkForWin = () => {
+  let arr="4,3,2,1"
+  // console.log(stacks.b.toString())
+  if(stacks.b.toString()==arr){
+    return true;
+  }
+  else if(stacks.c.toString()==arr){
+    return true
+  }
+  else{
+    return false
+  }
   // Your code here
 
 }
@@ -61,7 +75,7 @@ const checkForWin = () => {
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
   movePiece(startStack,endStack)
-  checkForWin()
+  // checkForWin()
 
 }
 
