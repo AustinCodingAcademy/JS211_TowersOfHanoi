@@ -46,8 +46,16 @@ const movePiece = (x,y) => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (x,y) => {
   //first test is x's stack is not empty then check for size of object being moved
-
- return true
+  //changed first test is actually for checking for correct inputs
+  if(stacks[x][0]===undefined){
+    return false
+  }
+  else if(stacks[x][stacks[x].length-1]>stacks[y][stacks[y].length-1]){
+    return false
+  }
+  else{
+    return true
+  }
   // Your code here
   //i should not be also be able to pop from an empty array and not be able to stack a larger number to a smaller one
 
