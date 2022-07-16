@@ -9,6 +9,7 @@
 
 let stone = null;
 let dropStoneFunction = false;
+let moves = 0;
 console.log(dropStoneFunction);
 // this function is called when a row is clicked.
 // Open your inspector tool to see what is being captured and can be used.
@@ -19,12 +20,6 @@ const selectRow = (row) => {
   // console.log("Here is the stone's id: ", row.id);
   // console.log("Here is the stone's data-size: ", currentRow);
 
-  console.log(row.classList);
-  // if (row.classList.contains('grabbable')) {
-  //   pickUpStone(row.id);
-  // } else {
-  //   dropStone(row.id, stone);
-  // }
   toggleFunction(row.id, stone);
   console.log(dropStoneFunction);
 };
@@ -37,18 +32,34 @@ const pickUpStone = (rowID) => {
   console.log(selectedRow);
   stone = selectedRow.removeChild(selectedRow.lastElementChild);
   console.log(stone);
-  // dropStoneFunction = true;
 };
 
-// Once you figure that out you'll need to figure out if its a legal move...
-// Something like: if(!stone){pickupStone} else{dropStone}
-
 const dropStone = (rowID, stone) => {
+  const movesCounter = document.querySelector('.move-counter');
   const selectedRow = document.getElementById(rowID);
-  selectedRow.appendChild(stone);
+  const existingStone = selectedRow.lastElementChild;
+  console.log(stone.getAttribute('data-size'));
+  // # Conditional to determine if a stone can be dropped.
+  if (
+    existingStone === null ||
+    existingStone.getAttribute('data-size') > stone.getAttribute('data-size')
+  ) {
+    selectedRow.appendChild(stone);
+  } else {
+    window.alert('Invalid Move!');
+    dropStoneFunction = false;
+  }
 
   stone = null;
-  // dropStoneFunction = false;
+  moves++;
+  movesCounter.innerHTML = '';
+  movesCounter.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <h4>Number of Moves:</h4>
+  <p>${moves}</p>`
+  );
+  checkForWin(selectedRow);
 };
 
 // You could use this function to drop the stone but you'll need to toggle
@@ -57,5 +68,11 @@ const dropStone = (rowID, stone) => {
 const toggleFunction = (row, stone) => {
   dropStoneFunction ? dropStone(row, stone) : pickUpStone(row);
   dropStoneFunction = !dropStoneFunction;
+};
+
+const checkForWin = (row) => {
+  if (row.childElementCount === 4) {
+    window.alert('You Win!');
+  }
 };
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.

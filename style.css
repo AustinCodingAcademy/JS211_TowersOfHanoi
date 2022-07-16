@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 34px;
-  margin: 25px;
+  margin: 60px;
   border: 1px solid lightgray;
 }
 
@@ -36,23 +36,23 @@
   float: left;
 }
 
-[data-color="blue"] {
-  height: 33px;
+[data-color='blue'] {
+  height: 40px;
   background-color: blue;
 }
 
-[data-color="green"] {
-  height: 33px;
+[data-color='green'] {
+  height: 60px;
   background-color: green;
 }
 
-[data-color="red"] {
-  height: 33px;
+[data-color='red'] {
+  height: 80px;
   background-color: red;
 }
 
-[data-color="yellow"] {
-  height: 33px;
+[data-color='yellow'] {
+  height: 100px;
   background-color: yellow;
 }
 
