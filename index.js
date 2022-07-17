@@ -80,7 +80,7 @@ const toggleFunction = (row, stone) => {
 // # We are checking for win by counting the number of child elements. Once child elements equal 4, the game is won.
 const checkForWin = (row) => {
   if (row.childElementCount === 4) {
-    window.alert('You Win!');
+    document.querySelector('.announce-game-won').classList.add('active');
   }
 };
 
