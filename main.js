@@ -68,7 +68,7 @@ const isLegal = (startStack, endStack) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Check 'c' and see if it contains all the pieces
-  if (stacks.b.includes(4) && stacks.b.includes(1)) {
+  if (stacks.b.length === 4) {
     console.log("You Win!!!");
     return true;
   } else {
