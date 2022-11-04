@@ -30,8 +30,15 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
   // Your code here
+  let beginningMove = stacks.a.pop() || stacks.b.pop() || stacks.c.pop();
+
+  beginningMove === startStack;
+
+  let transferMove = stacks.a.push(startStack) || stacks.b.push(startStack) || stacks.c.push(startStack);
+
+  transferMove === endStack;
 
 }
 
@@ -44,14 +51,23 @@ const isLegal = () => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-
+  if(stacks == {a: [], b: [4, 3, 2, 1], c: []}) {return true}
+  
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  isLegal();
 
+  movePiece(startStack, endStack);
+
+  checkForWin();
 }
+  
+
+  
+
 
 const getPrompt = () => {
   printStacks();
