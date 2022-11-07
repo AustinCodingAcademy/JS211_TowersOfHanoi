@@ -20,6 +20,7 @@ Code Plan
 5. Put .pop() in variables and check them with each other for moving
 6. Use .push() and put them in another peg to move them around
 7. Transfer them to another peg successfully without putting a bigger one on top of a smaller one
+8. Check if you have won after moving each time.
 
 Game Logic
 1. Determine if it's even or odd disks (n)
