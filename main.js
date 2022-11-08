@@ -54,7 +54,7 @@ const isLegal = (startStack, endStack) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-  //
+  // check if the other two towers are full
   if((stacks['b'].length == 4) || (stacks['c'].length == 4)) {
     console.log("You won!") //let the user know they won
     return true 
