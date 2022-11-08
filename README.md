@@ -34,6 +34,16 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 
 Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get an insight on how to build Towers of Hanoi with a GUI
 
+### Ethan's Code Plan
+1. Look through the functions of the current code
+2. Figure out a logic tree and logical order of events for the functions to run through
+3. Fix up the Code in `main.js` to be functional, and succeed on provided tests 
+4. Test `main.js`
+5. Once `main.js` is confirmed to work, copy and paste to `index.js`
+6. Clean up `index.js`, removing non-required parts
+7. Link required parts from `index.html` to `index.js`
+8. Test `index.html` and `index.js`
+
 ### Instructions
 
 <!-- There should be clear step by step instruction so the material can be asynchronously consumed. This will significantly help our students learn, review and improve your teaching experience.  -->
