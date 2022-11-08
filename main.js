@@ -32,72 +32,46 @@ const printStacks = () => {
 // Next, what do you think this function should do?
 const movePiece = (startStack, endStack) => {
   // Your code here
-  
-  if(startStack = stacks.a) {
-     startStack = stacks.a.pop();
-     endStack = stacks.b.slice(-1) || stacks.c.slice(-1);
-     if(isLegal() === true) {stacks.b.push(startStack)}
-     else {stacks.c.push(startStack)};
-  } else 
-  if(startStack = stacks.b) {
-    startStack = stacks.b.pop();
-    endStack = stacks.a.slice(-1) || stacks.c.slice(-1);
-    if(isLegal() === true) {stacks.a.push(startStack)}
-     else {stacks.c.push(startStack)}
-  } else 
-  if(startStack = stacks.c) {
-    startStack = stacks.c.pop();
-    endStack = stacks.a.slice(-1) || stacks.b.slice(-1);
-    if(isLegal() === true) {stacks.a.push(startStack)}
-     else {stacks.b.push(startStack)}
-  }
 
-  // first move is 1 -> 2 and store it in a variable
-  // startStack = stacks.a.pop();
-
-  // stacks.b.push(startStack);
-  // // store last number in variable
-  // endStack = stacks.a.slice(-1) || stacks.b.slice(-1) || stacks.c.slice(-1);
-
-  //keep moving pieces and check win condition
-  // do {
-  //   startStack = stacks.a.pop() || stacks.b.pop() || stacks.c.pop();
-
-  //   stacks.a.push(startStack) || stacks.b.push(startStack) || stacks.c.push(startStack);
-
-  //   endStack = stacks.a.slice(-1) || stacks.b.slice(-1) || stacks.c.slice(-1);
-  // }
-  // while (checkForWin() === false);
+  //pop each number from the stack and push them onto the new stack
+  let everyMove = stacks[startStack].pop();
+  stacks[endStack].push(everyMove);
   
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (startStack, endStack) => {
   // Your code here
-  endStack = stacks.slice();
-  // compare the variables to see if move is legal
-  if(startStack < endStack) {return false}
-  else {return true}
- 
-
+    if(stacks[endStack].length == 0) { //check if the endStack is empty before moving
+      return true} 
+    if(stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
+      // if the startStack number is smaller than endStack number, move it on top
+      return true}
+      else return false
 
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-  stacks == {a: [], b: [4, 3, 2, 1], c: [] } == true;
+  //
+  if((stacks['b'].length == 4) || (stacks['c'].length == 4)) {
+    console.log("You won!") //let the user know they won
+    return true 
+  } else return false
   
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-  isLegal(startStack, endStack);
-
-  movePiece(startStack, endStack);
-
-  checkForWin();
+  //before moving a piece, check if the move is legal
+  if(isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack)
+  } 
+  //check for win after moving a piece
+  checkForWin()
+   
 }
   
 
