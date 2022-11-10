@@ -32,23 +32,30 @@ const printStacks = () => {
 // Next, what do you think this function should do?
 const movePiece = (startStack, endStack) => {
   // Your code here
-
+  
   //pop each number from the stack and push them onto the new stack
-  let everyMove = stacks[startStack].pop();
-  stacks[endStack].push(everyMove);
+  let lowerCaseS = startStack.toLowerCase();
+  // console.log('****',lowerCaseS)
+  let everyMove = stacks[lowerCaseS].pop();
+  let lowerCaseE = endStack.toLowerCase();
+  // console.log('****',lowerCaseE)
+  stacks[lowerCaseE].push(everyMove);
   
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (startStack, endStack) => {
   // Your code here
-    if(stacks[endStack].length == 0) { //check if the endStack is empty before moving
+    
+  let lowerCaseS = startStack.toLowerCase();
+    let lowerCaseE = endStack.toLowerCase();
+    if(stacks[lowerCaseE].length == 0) { //check if the endStack is empty before moving
       return true} 
-    if(stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
+    if(stacks[lowerCaseS].slice(-1) < stacks[lowerCaseE].slice(-1)) {
       // if the startStack number is smaller than endStack number, move it on top
       return true}
       else return false
-
+    
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
@@ -65,18 +72,24 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-  //before moving a piece, check if the move is legal
+
+  // // // person's input is one of three variables
+  let input = ('c') || ('b') || ('a');
+
+  // // // if person enters something that is not a stack, tell them to only enter one of the three.
+  if((startStack !== input) || (endStack !== input)) {
+    console.log('Please enter a, b, or c.')
+  }
+  
+
+  // //before moving a piece, check if the move is legal
   if(isLegal(startStack, endStack)) {
     movePiece(startStack, endStack)
   } 
-  //check for win after moving a piece
+  // //check for win after moving a piece
   checkForWin()
-   
+  
 }
-  
-
-  
-
 
 const getPrompt = () => {
   printStacks();
@@ -126,8 +139,38 @@ if (typeof describe === 'function') {
     });
   });
 
+  // Test #1 made to ensure input is lowercase
+  describe('#movePiece()', () => {
+    it('should be lowercase', () => {
+      movePiece("C", "C");
+      assert.equal('c', 'c')
+    })
+  });
+
+  //Test #2 input is one of three variables
+  describe('#towerofHanoi()', () => {
+    it('should be three variables', () => {
+      towersOfHanoi("a", "C");
+      assert.equal("c", "c");
+      towersOfHanoi("a", "b");
+      assert.equal("b", "b");
+      towersOfHanoi("b", "a");
+      assert.equal("a", "a");
+    })
+  });
+
+  // Test #3: notify user that they won
+  describe('#checkForWin()', () => {
+    it('notify user they won', () => {
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      assert.equal(checkForWin(), "You won!");
+    });
+  });
+
 } else {
 
   getPrompt();
 
 }
+
+
