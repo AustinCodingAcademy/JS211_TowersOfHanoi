@@ -17,22 +17,11 @@ const selectRow = (row) => {
   console.log("Yay, we clicked an item", row)
   console.log("Here is the stone's id: ", row.id)
   console.log("Here is the stone's data-size: ", currentRow)
-  console.log("Select Row Stone", stone)
+  console.log("Stone defaults to", stone)
   
-  // isLegal(row.id, stone)
-  toggleStone(row.id, stone);
-  // if(stone == null) {
-  //   // console.log("YO")
-  //   pickUpStone(row.id)
-  // } 
-  // else
-  // if(stone != null) {
-  //   // console.log("Not null")
-  //   dropStone(row.id);
-  // }
+  towersOfHanoi(row.id, stone, currentRow);
+  checkForWin(stone, row.id);
   
-
-  // checkForWin();
 } 
 
 // this function can be called to get the last stone in the stack
@@ -44,6 +33,8 @@ const pickUpStone = (rowID) => {
   
   console.log("pickUpStone is", stone);
 
+  let winStone = stone
+  console.log('should be same as before', winStone)
 }
 
 // You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
@@ -51,7 +42,7 @@ const pickUpStone = (rowID) => {
 // Something like: if(!stone){pickupStone} else{dropStone}
 
 const dropStone = (rowID) => {
-  console.log('*', stone)
+  console.log('stone that gets dropped', stone)
   console.log(stone.getAttribute('data-color'))
   console.log(stone.getAttribute('data-size'))
 
@@ -73,9 +64,7 @@ const isLegal = (rowID, stone) => {
   console.log("stationary BEFORE", stationary);
 
   if(stationary === null) {
-    let emptyRow = document.createElement('div');
-    emptyRow.setAttribute('data-size', 5);
-    document.getElementById(rowID).appendChild(emptyRow);
+    dropStone(rowID);
   }
 
   console.log("stationary AFTER", stationary);
@@ -90,30 +79,50 @@ const isLegal = (rowID, stone) => {
 
 const toggleStone = (rowID, stone) => {
   if(stone == null) {
-    // console.log("YO")
+    console.log("empty tower gets stone if stone is null")
     pickUpStone(rowID)
   } 
   else
   if(isLegal(rowID, stone) === true) {
-    console.log("Not null")
+    console.log("stone gets placed on top")
     dropStone(rowID);
   }
 
 }
 
-const checkForWin = () => {
+const checkForWin = (stone, rowID) => {
   // check if the other two towers are full
-  if((stacks['b'].length == 4) || (stacks['c'].length == 4)) {
-  console.log("You won!") //let the user know they won
-  return true 
-} else dropStone()
+  let Row = document.getElementById(rowID);
+  //   position = Row.lastElementChild;
+  //   let lastStoneInRow = position.getAttribute('data-size');
+
+  let pickedUpStone = stone.getAttribute('data-size');
+  console.log('pickedUpStone', pickedUpStone);
+
+  console.log('Went into checkForWin Fx', rowID)
+  if(((rowID) !== 'bottom-row') && (Row.getElementsByClassName('stone').length === 4)) {
+    
+    console.log('MIDDLE ROW If Statement checkForWin')
+    window.alert("You won!");
+   
+  }
+  // if(((rowID) === 'top-row') && (pickedUpStone === 1)) {
+  //   console.log('TOP ROW If Statement checkForWin')
+
+  //   window.alert("You won!");
+    
+  // }
+//   if((currentRow.length == 4) || (currentRow.length == 4)) {
+//   console.log("You won!", currentRow.length) //let the user know they won
+//   alert("You won!")
+//   return true 
+// }
 }
 
 const towersOfHanoi = (rowID, stone) => {
-  
-  isLegal(rowID, stone);
-  toggleStone(row.id);
-  checkForWin();
+  console.log('passes through towersOfHanoi FX')
+  toggleStone(rowID, stone);
+  // checkForWin(rowID, currentRow);
 
 }
 
