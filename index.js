@@ -41,7 +41,7 @@ const isLegal = (rowID, stone) => {
   //compare the two numbers and place the stone if the one in your hand is smaller than the one already on the tower
     if(pickedUpStone < lastStoneInRow) {
     return true;
-  }
+  } else {window.alert("Move is invalid")}
 }
 
 const toggleStone = (rowID, stone) => {
