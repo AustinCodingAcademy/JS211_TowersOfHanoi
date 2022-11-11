@@ -19,8 +19,7 @@ const selectRow = (row) => {
   console.log("Here is the stone's data-size: ", currentRow)
   console.log("Stone defaults to", stone)
   
-  towersOfHanoi(row.id, stone, currentRow);
-  checkForWin(stone, row.id);
+  towersOfHanoi(row.id, stone);
   
 } 
 
@@ -86,25 +85,26 @@ const toggleStone = (rowID, stone) => {
   if(isLegal(rowID, stone) === true) {
     console.log("stone gets placed on top")
     dropStone(rowID);
+    
   }
 
 }
 
 const checkForWin = (stone, rowID) => {
   // check if the other two towers are full
-  let Row = document.getElementById(rowID);
+  let Rows = document.getElementById(rowID);
+  console.log("What is row", Rows)
   //   position = Row.lastElementChild;
   //   let lastStoneInRow = position.getAttribute('data-size');
 
   let pickedUpStone = stone.getAttribute('data-size');
   console.log('pickedUpStone', pickedUpStone);
-
+  console.log('length is', Rows.getElementsByClassName('stone').length)
   console.log('Went into checkForWin Fx', rowID)
-  if(((rowID) !== 'bottom-row') && (Row.getElementsByClassName('stone').length === 4)) {
-    
+
+  if(((rowID) !== 'bottom-row') && (Rows.getElementsByClassName('stone').length === 4)) {
     console.log('MIDDLE ROW If Statement checkForWin')
     window.alert("You won!");
-   
   }
   // if(((rowID) === 'top-row') && (pickedUpStone === 1)) {
   //   console.log('TOP ROW If Statement checkForWin')
@@ -122,7 +122,7 @@ const checkForWin = (stone, rowID) => {
 const towersOfHanoi = (rowID, stone) => {
   console.log('passes through towersOfHanoi FX')
   toggleStone(rowID, stone);
-  // checkForWin(rowID, currentRow);
+  checkForWin(stone, rowID);
 
 }
 
