@@ -17,39 +17,32 @@ const selectRow = (row) => {
   console.log("Yay, we clicked an item", row)
   console.log("Here is the stone's id: ", row.id)
   console.log("Here is the stone's data-size: ", currentRow)
-
-  pickUpStone(row.id)
+  console.log("Select Row Stone", stone)
   
+  // isLegal(row.id, stone)
+  toggleStone(row.id, stone);
+  // if(stone == null) {
+  //   // console.log("YO")
+  //   pickUpStone(row.id)
+  // } 
+  // else
+  // if(stone != null) {
+  //   // console.log("Not null")
+  //   dropStone(row.id);
+  // }
+  
+
+  // checkForWin();
 } 
-
-const isLegal = (rowID, stone) => {
-
-}
-
-
-
 
 // this function can be called to get the last stone in the stack
 // but there might be something wrong with it...
 const pickUpStone = (rowID) => {
   let selectedRow = document.getElementById(rowID);
   console.log('****', selectedRow);
-  if(selectedRow.lastChild){
-    // stone = document.createElement('div');
-    // stone.innerHTML = 'node'
-    stone = selectedRow.removeChild(selectedRow.lastChild);}
+  stone = selectedRow.removeChild(selectedRow.lastElementChild);
   
-  console.log(stone)
-
-  towersOfHanoi(rowID, stone)
-}
-
-const towersOfHanoi = (rowID, stone) => {
-  
-    if(stone != null) {
-      console.log("Am I running?")
-      pickUpStone()
-    } else {dropStone(rowID, stone)}
+  console.log("pickUpStone is", stone);
 
 }
 
@@ -57,19 +50,72 @@ const towersOfHanoi = (rowID, stone) => {
 // Once you figure that out you'll need to figure out if its a legal move...
 // Something like: if(!stone){pickupStone} else{dropStone}
 
-const dropStone = (rowID, stone) => {
-  // stone = document.createElement('div');
-  // stone.innerHTML = 'node'
-  document.getElementById(rowID).appendChild(stone);
+const dropStone = (rowID) => {
+  console.log('*', stone)
+  console.log(stone.getAttribute('data-color'))
+  console.log(stone.getAttribute('data-size'))
+
+  let selectedRow = document.getElementById(rowID);
+    selectedRow.appendChild(stone);
   stone = null
 }
 
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 
+const isLegal = (rowID, stone) => {
+  let pickedUpStone = stone.getAttribute('data-size');
+  console.log('pickedUpStone', pickedUpStone);
 
+  let selectedRow = document.getElementById(rowID);
+  console.log('placingBlock', selectedRow);
+  stationary = selectedRow.lastElementChild;
+  console.log("stationary BEFORE", stationary);
 
-const checkForWin = () => {
+  if(stationary === null) {
+    let emptyRow = document.createElement('div');
+    emptyRow.setAttribute('data-size', 5);
+    document.getElementById(rowID).appendChild(emptyRow);
+  }
+
+  console.log("stationary AFTER", stationary);
+  let lastStoneInRow = stationary.getAttribute('data-size');
+  console.log("lastStoneInRow", lastStoneInRow);
+  
+    if(pickedUpStone < lastStoneInRow) {
+    return true
+  }
+  
+}
+
+const toggleStone = (rowID, stone) => {
+  if(stone == null) {
+    // console.log("YO")
+    pickUpStone(rowID)
+  } 
+  else
+  if(isLegal(rowID, stone) === true) {
+    console.log("Not null")
+    dropStone(rowID);
+  }
 
 }
+
+const checkForWin = () => {
+  // check if the other two towers are full
+  if((stacks['b'].length == 4) || (stacks['c'].length == 4)) {
+  console.log("You won!") //let the user know they won
+  return true 
+} else dropStone()
+}
+
+const towersOfHanoi = (rowID, stone) => {
+  
+  isLegal(rowID, stone);
+  toggleStone(row.id);
+  checkForWin();
+
+}
+
+
 
