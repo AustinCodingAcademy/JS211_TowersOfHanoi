@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const { start } = require('repl');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -30,27 +31,64 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
   // Your code here
-
+  
+  //pop each number from the stack and push them onto the new stack
+  let lowerCaseS = startStack.toLowerCase();
+  // console.log('****',lowerCaseS)
+  let everyMove = stacks[lowerCaseS].pop();
+  let lowerCaseE = endStack.toLowerCase();
+  // console.log('****',lowerCaseE)
+  stacks[lowerCaseE].push(everyMove);
+  
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (startStack, endStack) => {
   // Your code here
+    
+//  // // // person's input is one of three variables
+//  const inputs = ['c', 'b', 'a'];
 
+//  // // // if person enters something that is not a stack, tell them to only enter one of the three.
+//   inputs.every(input => {if((input !== startStack) || (input !== endStack)) {console.log("Wrong variable entered.")
+//   return 
+//   }});
+ 
+
+  let lowerCaseS = startStack.toLowerCase();
+    let lowerCaseE = endStack.toLowerCase();
+    if(stacks[lowerCaseE].length == 0) { //check if the endStack is empty before moving
+      return true} 
+    if(stacks[lowerCaseS].slice(-1) < stacks[lowerCaseE].slice(-1)) {
+      // if the startStack number is smaller than endStack number, move it on top
+      return true}
+      else return false
+    
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-
+  // check if the other two towers are full
+  if((stacks['b'].length == 4) || (stacks['c'].length == 4)) {
+    console.log("You won!") //let the user know they won
+    return true 
+  } else return false
+  
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
-  // Your code here
+  // Your code here 
 
+  // //before moving a piece, check if the move is legal
+  if(isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack)
+  } 
+  // //check for win after moving a piece
+  checkForWin()
 }
 
 const getPrompt = () => {
@@ -101,8 +139,43 @@ if (typeof describe === 'function') {
     });
   });
 
+  // Test #1 made to ensure input is lowercase
+  describe('#movePiece()', () => {
+    it('should be lowercase', () => {
+      movePiece("C", "C");
+      assert.equal('c', 'c')
+    })
+  });
+
+  //Test #2 input is one of three variables
+  describe('#isLegal()', () => {
+    it('should be three variables', () => {
+      isLegal("d", "d");
+      assert.equal(stacks, true);
+    })
+  });
+
+  // Test #3: movePiece is running (I understand that bc I'm not passing a third variable, it comes out undefined. What I'm guessing is it doesn't do that in the towersOfHanoi test above is bc it's in the getPrompt()?)
+  describe('#movePiece()', () => {
+    it('should move them to b stack', () => {
+      movePiece('a', 'b');
+      assert.deepEqual(stacks, { a: [], b: [4, 3, 2, 1], c: [undefined] 
+      });
+    it('should move them to c stack'), () => {
+      movePiece('a', 'c');
+      assert.deepEqual(stacks, { a: [], b: [undefined], c: [4, 3, 2, 1] 
+      });}
+      it('should move them to a stack'), () => {
+        movePiece("c", "a");
+      assert.deepEqual(stacks, { a: [4, 3, 2, 1], b: [undefined], c: [] 
+      });}  
+  });   
+  });
+
 } else {
 
   getPrompt();
 
 }
+
+

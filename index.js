@@ -1,42 +1,75 @@
-// * This js file is incomplete. It will log to the console the elements you click
-    // call another function and set stone. You will have to work through the logic
-    // of the game as you know it from building it in the terminal. Work through the
-    // puzzle slowly, stepping through the flow of logic, and making the game work.
-    // Have fun!!
-// * First run the program in your browser with live server and double-click on the row you'd like to select an element from.
-// * Why are you get a warning in your console? Fix it.
-// * Delete these comment lines!
 
-const stone = null
+let stone = null
 
 // this function is called when a row is clicked. 
 // Open your inspector tool to see what is being captured and can be used.
-const selectRow = (row) => {
-  const currentRow = row.getAttribute("data-row")
-  
-  console.log("Yay, we clicked an item", row)
-  console.log("Here is the stone's id: ", row.id)
-  console.log("Here is the stone's data-size: ", currentRow)
-
-  pickUpStone(row.id)
+const selectRow = (row) => { 
+  //run game
+  towersOfHanoi(row.id, stone);
 } 
 
 // this function can be called to get the last stone in the stack
-// but there might be something wrong with it...
 const pickUpStone = (rowID) => {
-  const selectedRow = document.getElementById(rowID);
-  stone = selectedRow.removeChild(selectedRow.lastChild);
-  console.log(stone)
+  //look for row that is picked
+  let selectedRow = document.getElementById(rowID); 
+  //grab last stone off div
+  stone = selectedRow.removeChild(selectedRow.lastElementChild); 
 }
 
-// You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
-// Once you figure that out you'll need to figure out if its a legal move...
-// Something like: if(!stone){pickupStone} else{dropStone}
-
-const dropStone = (rowID, stone) => {
-  document.getElementById(rowID).appendChild(stone)
+const dropStone = (rowID) => {
+  //place stone on tower that is clicked
+  document.getElementById(rowID).appendChild(stone);
+  //reset stone to null
   stone = null
 }
 
-// * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
+const isLegal = (rowID, stone) => {
+  //grab the data-size attribute of stone in your hand and put it in a variable
+  let pickedUpStone = stone.getAttribute('data-size');
+  //look at the tower's last element child
+  let selectedRow = document.getElementById(rowID);
+  stationary = selectedRow.lastElementChild;
+  //if the tower is empty, drop the stone
+  if(stationary === null) {
+    dropStone(rowID);
+  }
+
+  //when the tower has a stone, grab the stone's data-size
+  let lastStoneInRow = stationary.getAttribute('data-size');
+  //compare the two numbers and place the stone if the one in your hand is smaller than the one already on the tower
+    if(pickedUpStone < lastStoneInRow) {
+    return true;
+  } else {window.alert("Move is invalid")}
+}
+
+const toggleStone = (rowID, stone) => {
+  //if your stone has a null value, pick up a stone
+  if(stone == null) {
+    pickUpStone(rowID)
+  } 
+  else
+  //if the the stone in your hand is smaller than the one on the tower, drop the stone
+  if(isLegal(rowID, stone) === true) {
+    dropStone(rowID);
+  }
+}
+
+const checkForWin = (rowID) => {
+  // check if the other two towers are full
+  //Rows is a variable for looking at the towers
+  let Rows = document.getElementById(rowID);
+
+  //if the id is not bottom-row and there are 4 stones,  you win
+  if(((rowID) !== 'bottom-row') && (Rows.getElementsByClassName('stone').length === 4)) {
+    window.alert("You won!");
+  }
+}
+
+const towersOfHanoi = (rowID, stone) => {
+  //runs through the other functions by toggling through the stones and then check for win
+  toggleStone(rowID, stone);
+  checkForWin(rowID);
+}
+
+
 

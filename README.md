@@ -12,6 +12,24 @@
 
 Your checkpoint is really a terminal app; which is what you'll be graded on. However, you should push to use the DOM and create a GUI for this game.
 
+Code Plan
+1. Label each block with a different number
+2. As each block is moved from one stack to another, compare the numbers
+3. Only if the block's number is less than what is already there can it stack on top
+4. Use .pop() to move the numbers between the arrays
+5. Put .pop() in variables and check them with each other for moving
+6. Use .push() and put them in another peg to move them around
+7. Transfer them to another peg successfully without putting a bigger one on top of a smaller one
+8. Check if you have won after moving each time.
+
+Game Logic
+1. Determine if it's even or odd disks (n)
+2. For odd, first move is 1 -> 3
+3. For even, first move is 1 -> 2
+4. Legal move is between two pegs as long as it's not on a smaller block
+5. total of 2n - 1 moves
+
+
 ## Checklist
 
 <!-- This is for their personal navigation through the project. They can go through and make sure they get each thing and can comb over it later.  -->
