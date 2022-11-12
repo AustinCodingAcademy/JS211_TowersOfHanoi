@@ -26,11 +26,9 @@ const dropStone = (rowID) => {
 const isLegal = (rowID, stone) => {
   //grab the data-size attribute of stone in your hand and put it in a variable
   let pickedUpStone = stone.getAttribute('data-size');
-
   //look at the tower's last element child
   let selectedRow = document.getElementById(rowID);
   stationary = selectedRow.lastElementChild;
-
   //if the tower is empty, drop the stone
   if(stationary === null) {
     dropStone(rowID);

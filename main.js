@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const { start } = require('repl');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -47,6 +48,15 @@ const movePiece = (startStack, endStack) => {
 const isLegal = (startStack, endStack) => {
   // Your code here
     
+//  // // // person's input is one of three variables
+//  const inputs = ['c', 'b', 'a'];
+
+//  // // // if person enters something that is not a stack, tell them to only enter one of the three.
+//   inputs.every(input => {if((input !== startStack) || (input !== endStack)) {console.log("Wrong variable entered.")
+//   return 
+//   }});
+ 
+
   let lowerCaseS = startStack.toLowerCase();
     let lowerCaseE = endStack.toLowerCase();
     if(stacks[lowerCaseE].length == 0) { //check if the endStack is empty before moving
@@ -71,16 +81,7 @@ const checkForWin = () => {
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
-  // Your code here
-
-  // // // person's input is one of three variables
-  let input = ('c') || ('b') || ('a');
-
-  // // // if person enters something that is not a stack, tell them to only enter one of the three.
-  if((startStack !== input) || (endStack !== input)) {
-    console.log('Please enter a, b, or c.')
-  }
-  
+  // Your code here 
 
   // //before moving a piece, check if the move is legal
   if(isLegal(startStack, endStack)) {
@@ -88,7 +89,6 @@ const towersOfHanoi = (startStack, endStack) => {
   } 
   // //check for win after moving a piece
   checkForWin()
-  
 }
 
 const getPrompt = () => {
@@ -148,23 +148,28 @@ if (typeof describe === 'function') {
   });
 
   //Test #2 input is one of three variables
-  describe('#towerofHanoi()', () => {
+  describe('#isLegal()', () => {
     it('should be three variables', () => {
-      towersOfHanoi("a", "C");
-      assert.equal("c", "c");
-      towersOfHanoi("a", "b");
-      assert.equal("b", "b");
-      towersOfHanoi("b", "a");
-      assert.equal("a", "a");
+      isLegal("d", "d");
+      assert.equal(stacks, true);
     })
   });
 
-  // Test #3: notify user that they won
-  describe('#checkForWin()', () => {
-    it('notify user they won', () => {
-      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
-      assert.equal(checkForWin(), "You won!");
-    });
+  // Test #3: movePiece is running (I understand that bc I'm not passing a third variable, it comes out undefined. What I'm guessing is it doesn't do that in the towersOfHanoi test above is bc it's in the getPrompt()?)
+  describe('#movePiece()', () => {
+    it('should move them to b stack', () => {
+      movePiece('a', 'b');
+      assert.deepEqual(stacks, { a: [], b: [4, 3, 2, 1], c: [undefined] 
+      });
+    it('should move them to c stack'), () => {
+      movePiece('a', 'c');
+      assert.deepEqual(stacks, { a: [], b: [undefined], c: [4, 3, 2, 1] 
+      });}
+      it('should move them to a stack'), () => {
+        movePiece("c", "a");
+      assert.deepEqual(stacks, { a: [4, 3, 2, 1], b: [undefined], c: [] 
+      });}  
+  });   
   });
 
 } else {
