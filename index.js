@@ -1,42 +1,104 @@
-// * This js file is incomplete. It will log to the console the elements you click
-    // call another function and set stone. You will have to work through the logic
-    // of the game as you know it from building it in the terminal. Work through the
-    // puzzle slowly, stepping through the flow of logic, and making the game work.
-    // Have fun!!
-// * First run the program in your browser with live server and double-click on the row you'd like to select an element from.
-// * Why are you get a warning in your console? Fix it.
-// * Delete these comment lines!
+let moveCounter = 0
 
-const stone = null
+let storage = document.getElementById("selected-piece")
+
+let stone = null
+
+let defaultLayOut = `
+<div id="top-row" data-row="top" class="red row" onclick="selectRow(this)"></div>
+      <div id="middle-row" data-row="middle" class="blue row" onclick="selectRow(this)"></div>
+      <div id="bottom-row" data-row="bottom" class="green row" onclick="selectRow(this)">
+        <div id="4" data-size="4" data-color="yellow" class="stone"></div>
+        <div id="3" data-size="3" data-color="red" class="stone"></div>
+        <div id="2" data-size="2" data-color="green" class="stone"></div>
+        <div id="1" data-size="1" data-color="blue" class="stone"></div>
+        `
 
 // this function is called when a row is clicked. 
-// Open your inspector tool to see what is being captured and can be used.
-const selectRow = (row) => {
+function selectRow(row) {
   const currentRow = row.getAttribute("data-row")
   
   console.log("Yay, we clicked an item", row)
-  console.log("Here is the stone's id: ", row.id)
-  console.log("Here is the stone's data-size: ", currentRow)
+  console.log("Here is the row's id: ", row.id)
+  console.log("Here is the row's data-row: ", currentRow)
+  console.log("Row ID child element count: " + row.childElementCount)
 
-  pickUpStone(row.id)
+  if (stone == null) {
+    pickUpStone(row.id)
+  }
+  else {
+    dropStone(row, row.id)
+  }
 } 
 
 // this function can be called to get the last stone in the stack
-// but there might be something wrong with it...
-const pickUpStone = (rowID) => {
+function pickUpStone(rowID) {
+  console.log("Pick up the stone! " + rowID)
   const selectedRow = document.getElementById(rowID);
-  stone = selectedRow.removeChild(selectedRow.lastChild);
+  stone = selectedRow.lastElementChild;
   console.log(stone)
+  storeStone()
 }
 
-// You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
-// Once you figure that out you'll need to figure out if its a legal move...
-// Something like: if(!stone){pickupStone} else{dropStone}
+// this function can be used to store the stone in a visible place
+function storeStone() {
+  storage.appendChild(stone)
+}
 
-const dropStone = (rowID, stone) => {
-  document.getElementById(rowID).appendChild(stone)
-  stone = null
+// this function to drop the stone
+const dropStone = (row, rowID) => {
+  console.log("Drop the stone! " + stone)
+  // Check if the move is legal by checking the isLegal function
+  console.log("Row ID child element count: " + rowID.childElementCount + " and the Row ID " + rowID)
+  if (isLegal(row, rowID)) {
+    document.getElementById(rowID).appendChild(stone)
+    stone = null
+    moveCounter++
+    document.getElementById("move-count").innerHTML = moveCounter
+    checkForWin(rowID)
+  }
+  else {
+    window.alert("Invalid Move.")
+  }
 }
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 
+function isLegal(row, rowID) {
+  // Check to see if the stored stone's id is lower than placed one
+  console.log("Row ID child element count: " + row.childElementCount + " and the Row ID: " + rowID)
+  if (row.lastElementChild == null) {
+    return true
+  }
+  else {
+    if (stone.getAttribute("data-size") < row.lastElementChild.getAttribute("data-size")) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
+}
+
+const checkForWin = (rowID) => {
+  // Make sure that b OR c has all 4 discs stacked properly
+  if ((rowID) !== 'bottom-row' && document.getElementById(rowID).getElementsByClassName('stone').length == 4) {
+    window.alert("You Won! It took you " + moveCounter + " moves!")
+    reset()
+  }
+  else {
+    
+  }
+}
+
+// Reset the game
+function reset() {
+  console.log("Hey idiot! You reset the game!")
+  moveCounter = 0
+  document.getElementById("move-count").innerHTML = moveCounter
+  if (storage.firstChild) {
+    storage.removeChild(storage.firstChild)
+    stone = null
+  }
+  document.getElementById("towers").innerHTML = defaultLayOut
+}
