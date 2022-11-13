@@ -24,14 +24,12 @@ let stacks = {
   c: []
 };
 
-// Start here. What is this function doing?
 const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
 
-// Next, what do you think this function should do?
 const movePiece = (move, goal) => {
   // If you made it here, the move is legal
   
@@ -41,7 +39,6 @@ const movePiece = (move, goal) => {
   checkForWin()
 }
 
-// Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (startP, endP) => {
   // First, check to make sure the stacks selected are valid
   console.log("You picked " + startP + " as your start, and " + endP + " as your end.")
@@ -64,7 +61,6 @@ const isLegal = (startP, endP) => {
   }
 }
 
-// What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Make sure that b OR c has all 4 discs stacked properly
   if (stacks.b.length == 4 || stacks.c.length == 4) {
@@ -76,7 +72,6 @@ const checkForWin = () => {
   }
 }
 
-// When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // First, trim and lowercase the inputs, for ease of use
   startStack = startStack.trim().toLowerCase()

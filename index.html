@@ -3,23 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h1>Towers Of Hanoi</h1>
+    <h2>Move Count: <span id="move-count">0</span></h2>
+    <button onclick="reset()">RESET</button>
     <hr/>
+    <div id="towers">
       <div id="top-row" data-row="top" class="red row" onclick="selectRow(this)"></div>
-      <div id="middle-row" data-row="middle" class="yellow row" onclick="selectRow(this)"></div>
-      <div id="bottom-row" class="green row" data-row="bottom" onclick="selectRow(this)">
-        <div id="4" data-size="4" data-color="yellow" class="stone" ></div>
-        <div id="3" data-size="3" data-color="red" class="stone" ></div>
-        <div id="2" data-size="2" data-color="green" class="stone" ></div>
-        <div id="1" data-size="1" data-color="blue" class="stone" ></div>
+      <div id="middle-row" data-row="middle" class="blue row" onclick="selectRow(this)"></div>
+      <div id="bottom-row" data-row="bottom" class="green row" onclick="selectRow(this)">
+        <div id="4" data-size="4" data-color="yellow" class="stone"></div>
+        <div id="3" data-size="3" data-color="red" class="stone"></div>
+        <div id="2" data-size="2" data-color="green" class="stone"></div>
+        <div id="1" data-size="1" data-color="blue" class="stone"></div>
       </div>
-    <hr/>
+    </div>
+      <hr/>
+      <h1>Current Piece:</h1>
+      <div id="selected-piece"></div>
+    <script src="index.js"></script>
   </body>
 </html>
-
-
-
