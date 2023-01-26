@@ -91,15 +91,27 @@ if (typeof describe === 'function') {
       };
       assert.equal(isLegal('a', 'c'), true);
     });
+    it('should allow a legal move', () => {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+      assert.equal(isLegal('a', 'b'), true);
+    });
   });
-  describe('#checkForWin()', () => {
+  describe('#checkForWin()', () => {+
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      assert.equal(checkForWin(), true);
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
   });
+
+
 
 } else {
 
