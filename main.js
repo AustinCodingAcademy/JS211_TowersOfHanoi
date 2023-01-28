@@ -30,8 +30,8 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
+const movePiece = (userInput) => {
+  
 
 }
 

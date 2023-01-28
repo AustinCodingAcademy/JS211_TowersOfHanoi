@@ -7,7 +7,7 @@
 // * Why are you get a warning in your console? Fix it.
 // * Delete these comment lines!
 
-const stone = null
+let stone = null
 
 // this function is called when a row is clicked. 
 // Open your inspector tool to see what is being captured and can be used.
@@ -27,6 +27,7 @@ const pickUpStone = (rowID) => {
   const selectedRow = document.getElementById(rowID);
   stone = selectedRow.removeChild(selectedRow.lastChild);
   console.log(stone)
+
 }
 
 // You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
@@ -40,3 +41,10 @@ const dropStone = (rowID, stone) => {
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
 
+
+// const currentRow = row.querySelectorAll(row.id)
+// console.log("Row", row)
+// pickUpStone(row)
+
+// stone = row.removeChild(row.lastChild)
+// console.log("stone", stone)
