@@ -17,16 +17,17 @@ const selectRow = (row) => {
   if (stone === null) {
     pickUpStone(row.id);
   } else {
-    const currentRow = row.getAttribute("data-row");
+    // const currentRow = row.getAttribute("data-row");
 
-    console.log("Yay, we clicked an item", row);
-    console.log("Here is the stone's id: ", row.id);
-    console.log("Here is the stone's data-size: ", currentRow);
-    console.log("row.lastchild: ", row);
+    // console.log("Yay, we clicked an item", row);
+    // console.log("Here is the stone's id: ", row.id);
+    // console.log("Here is the stone's data-size: ", currentRow);
+    // console.log("row.lastchild: ", row);
 
-    let theLastMarble = row.lastChild;
-    console.log("thelastmarble ", theLastMarble);
-    dropStone(row, theLastMarble);
+    // let theLastMarble = row.lastChild;
+    // console.log("thelastmarble ", theLastMarble);
+    dropStone(row, stone);
+    stone = null;
   }
 };
 
@@ -37,7 +38,7 @@ const pickUpStone = (row) => {
   let selectedRow = document.getElementById(row);
   console.log("selected row: ", selectedRow);
 
-  stone = selectedRow.removeChild(selectedRow.lastChild);
+  stone = selectedRow.removeChild(selectedRow.lastElementChild);
   console.log({ stone });
 };
 
@@ -47,7 +48,6 @@ const pickUpStone = (row) => {
 
 const dropStone = (row, stone) => {
   row.appendChild(stone);
-  stone = null;
 };
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. But how? Follow the flow of data just like falling dominoes.
