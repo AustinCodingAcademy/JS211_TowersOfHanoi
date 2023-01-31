@@ -44,7 +44,7 @@ console.log(selectedBlock)
   // console.log(stone.id);
 };
 
-const toggleStone = () => {};
+
 
 // You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
 // Once you figure that out you'll need to figure out if its a legal move...
