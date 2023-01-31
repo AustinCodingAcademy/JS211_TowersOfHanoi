@@ -25,7 +25,7 @@ GUI Game:
 1. need to find what row is selected - so we can tell it to go from one row to the next
 2. find what block is selected - so we know which block to move to which row
 3. must be able to pick up selected block and set in new row
-4.
+
 
 ---
 

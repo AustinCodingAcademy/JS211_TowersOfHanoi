@@ -22,7 +22,6 @@ const printStacks = () => {
 const movePiece = (startStack, endStack) => {
   let remove = stacks[startStack].pop();
   stacks[endStack].push(remove);
-  // call towersOfHanoi to get which stack to remove from and which stack to place
 };
 
 const isLegal = (startStack, endStack) => {
@@ -42,8 +41,7 @@ const isLegal = (startStack, endStack) => {
 
 const checkForWin = () => {
   if (stacks.b.length === 4) {
-    //|| stacks.c.length === 4)
-    console.log("Winner, Winner, Chicken, Dinner!"); //needs to be above return because once return happens its gone
+    console.log("Winner, Winner, Chicken, Dinner!");
     return true;
   } else if (stacks.c.length === 4) {
     console.log("Winner! You are a Master of Towers of Hanoi");
@@ -52,11 +50,8 @@ const checkForWin = () => {
 };
 
 const towersOfHanoi = (startStack, endStack) => {
-  //is legal to determin if it can move = true move piece then check for win
-  // islegal = true then move piece, then check for win
   if (isLegal(startStack, endStack)) {
-    //truthy or falsey statement
-    movePiece(startStack, endStack); //arguments
+    movePiece(startStack, endStack);
     checkForWin();
   } else {
     console.log("Try Again Bud, Not a Valid Move");

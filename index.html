@@ -25,36 +25,12 @@
       class="green row"
       data-row="bottom"
       onclick="selectRow(this)"
+      ondblclick="pickUpStone(this)"
     >
-      <div
-        id="4"
-        data-size="4"
-        data-color="yellow"
-        class="stone"
-        onclick="selectedBlock(this)"
-        ondragstart="pickUpStone(this)"
-      ></div>
-      <div
-        id="3"
-        data-size="3"
-        data-color="red"
-        class="stone"
-        onclick="selectedBlock(this)"
-      ></div>
-      <div
-        id="2"
-        data-size="2"
-        data-color="green"
-        class="stone"
-        onclick="selectedBlock(this)"
-      ></div>
-      <div
-        id="1"
-        data-size="1"
-        data-color="blue"
-        class="stone"
-        onclick="selectedBlock(this)"
-      ></div>
+      <div id="4" data-size="4" data-color="yellow" class="stone"></div>
+      <div id="3" data-size="3" data-color="red" class="stone"></div>
+      <div id="2" data-size="2" data-color="green" class="stone"></div>
+      <div id="1" data-size="1" data-color="blue" class="stone" onclick="selectStone(this)"></div>
     </div>
     <hr />
     <script src="index.js"></script>
