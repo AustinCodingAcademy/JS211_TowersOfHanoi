@@ -1,10 +1,19 @@
 [data-row] {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  height: 34px;
+  height: 400px;
+  width: 34px;
   margin: 25px;
   border: 1px solid lightgray;
+}
+
+#rowContainer {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly
 }
 
 .row {
@@ -13,6 +22,7 @@
 
 [data-row].red {
   background-color: #f6c5c5;
+  
 }
 
 [data-row].yellow {
@@ -29,7 +39,7 @@
 
 .stone {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 10;
@@ -41,27 +51,27 @@
 }
 
 [data-color] {
-  width: 25px;
+  width: 34px;
   float: left;
 }
 
 [data-color="blue"] {
-  height: 33px;
+  height: 34px;
   background-color: rgb(65, 65, 194);
 }
 
 [data-color="orange"] {
-  height: 33px;
+  height: 34px;
   background-color: orange;
 }
 
 [data-color="red"] {
-  height: 33px;
+  height: 34px;
   background-color: red;
 }
 
 [data-color="yellow"] {
-  height: 33px;
+  height: 34px;
   background-color: yellow;
 }
 

@@ -9,6 +9,7 @@ let numberOfMoves = 0;
 // functions 
 
 const selectRow = (row) => {
+  console.log("row clicked")
   moveMessage = '';
   document.getElementById("moveMessage").innerHTML = moveMessage
   const currentRow = row.getAttribute("data-row")
