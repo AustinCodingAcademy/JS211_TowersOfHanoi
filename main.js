@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const readline = require('readline');
+const { start } = require('repl');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -15,6 +16,22 @@ const rl = readline.createInterface({
       // * Each number represents the largest to smallest tokens: 
         // * 4 is the largest, 
         // * 1 is the smallest
+
+        //move disc 1 to b
+        //move disc 2 to c
+        //move disc 1 to c (will be on top of 2)
+        //move disc 3 to b
+        //move disc 1 to a (will be on top of 4)
+        //move disc 2 to b (will be on top of 3)
+        //move disc 1 to b (will be on top of 2 and 3)
+        //move disc 4 to c
+        //move disc 1 to c (will be on top of 4)
+        //move disc 2 to a
+        //move disc 1 to a (will be on top of 2)
+        //move disc 3 to c (will be on top of 4)
+        //move disc 1 to b
+        //move disc 2 to c (will be on top of 3 and 4)
+        //move disc 1 to c to be on top of three disc
 
 let stacks = {
   a: [4, 3, 2, 1],
@@ -30,27 +47,60 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+//This function should move the pieces
+const movePiece = (startStack, endStack) => {
   // Your code here
+console.log("Start stack", stacks[startStack])
+
+console.log("End stack", stacks[endStack])
+
+let stone = stacks[startStack].pop()
+stacks[endStack].push(stone)
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
+//A larger disc cannot stack on top of a smaller disc. Ex: 3 cannot go on top of 2. That would be an illegal move
+const isLegal = (startStack, endStack) => {
+if (!stacks[endStack].length){
 
+  return true
+}
+
+if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1) ) {
+
+  return true
+
+}
+console.log("This is not a legal move")
+return false
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
+//A win is if all of the disc are on stack c in the order of 4, 3, 2, 1. With 4 being at the bottom, and 1 on top.
 const checkForWin = () => {
   // Your code here
+if (stacks.c.length === 4 || stacks.b.length === 4) {
 
+console.log("You win!")
+
+return true
+}
+else return false
 }
 
 // When is this function called? What should it do with its argument?
+//This function is called when 
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-
+  if (isLegal(startStack,endStack)) {
+  
+  movePiece(startStack, endStack)
+  checkForWin()
+  }
+  else {
+  console.log("This is an illegal move, try again")
+  }
 }
 
 const getPrompt = () => {
