@@ -8,57 +8,57 @@ let numberOfMoves = 0;
 
 // functions 
 
-const selectRow = (row) => {
-  console.log("row clicked")
-  moveMessage = '';
-  document.getElementById("moveMessage").innerHTML = moveMessage
-  const currentRow = row.getAttribute("data-row")
-  const currentRowId = row.id
-  console.log(`the row you clicked on is ${currentRow} row and has id ${currentRowId}`)
+// const selectRow = (row) => {
+//   console.log("row clicked")
+//   moveMessage = '';
+//   document.getElementById("moveMessage").innerHTML = moveMessage
+//   const currentRow = row.getAttribute("data-row")
+//   const currentRowId = row.id
+//   console.log(`the row you clicked on is ${currentRow} row and has id ${currentRowId}`)
 
-  pickUpStone(currentRowId)
-} 
+//   pickUpStone(currentRowId)
+// } 
 
-const pickUpStone = (rowId) => {
-  selectedRow = document.getElementById(rowId);
-  console.log(selectedRow);
-  stone = selectedRow.removeChild(selectedRow.lastElementChild);
-  currentStoneSize = parseInt(stone.getAttribute("data-size")); 
-  console.log(stone, currentStoneSize)
-}
+// const pickUpStone = (rowId) => {
+//   selectedRow = document.getElementById(rowId);
+//   console.log(selectedRow);
+//   stone = selectedRow.removeChild(selectedRow.lastElementChild);
+//   currentStoneSize = parseInt(stone.getAttribute("data-size")); 
+//   console.log(stone, currentStoneSize)
+// }
 
-const dropStone = (row) => {
-  const droppedRow = document.getElementById(row.id);
-  const rowSize = droppedRow.childElementCount
-  console.log(rowSize)
-  if(rowSize === 0){
-    droppedRow.appendChild(stone);
-    console.log("move successful");
-    moveMessage = "Successfully moved stone"; 
-    document.getElementById("moveMessage").innerHTML = moveMessage
-    stone = null; 
-    currentStoneSize = null; 
-    numberOfMoves++
-    document.getElementById("moves").innerHTML = numberOfMoves
-  }else if((rowSize > 0) && (parseInt(droppedRow.lastElementChild.innerHTML) > currentStoneSize)){
-    droppedRow.appendChild(stone);
-    numberOfMoves++
-    document.getElementById("moves").innerHTML = numberOfMoves
-    console.log("this is a valid move");
-    moveMessage = "Successfully moved stone"
-    document.getElementById("moveMessage").innerHTML = moveMessage
-    checkForWin();
-    stone = null; 
-    currentStoneSize = null; 
-  }else{
-    selectedRow.appendChild(stone)
-    console.log("invalid move"); 
-    moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack.";
-    document.getElementById("moveMessage").innerHTML = moveMessage
-    stone = null; 
-    currentStoneSize = null; 
-  }
-}
+// const dropStone = (row) => {
+//   const droppedRow = document.getElementById(row.id);
+//   const rowSize = droppedRow.childElementCount
+//   console.log(rowSize)
+//   if(rowSize === 0){
+//     droppedRow.appendChild(stone);
+//     console.log("move successful");
+//     moveMessage = "Successfully moved stone"; 
+//     document.getElementById("moveMessage").innerHTML = moveMessage
+//     stone = null; 
+//     currentStoneSize = null; 
+//     numberOfMoves++
+//     document.getElementById("moves").innerHTML = numberOfMoves
+//   }else if((rowSize > 0) && (parseInt(droppedRow.lastElementChild.innerHTML) > currentStoneSize)){
+//     droppedRow.appendChild(stone);
+//     numberOfMoves++
+//     document.getElementById("moves").innerHTML = numberOfMoves
+//     console.log("this is a valid move");
+//     moveMessage = "Successfully moved stone"
+//     document.getElementById("moveMessage").innerHTML = moveMessage
+//     checkForWin();
+//     stone = null; 
+//     currentStoneSize = null; 
+//   }else{
+//     selectedRow.appendChild(stone)
+//     console.log("invalid move"); 
+//     moveMessage = "Invalid move. The stone you are placing must be smaller than the last stone in ending stack.";
+//     document.getElementById("moveMessage").innerHTML = moveMessage
+//     stone = null; 
+//     currentStoneSize = null; 
+  // }
+// }
 
 function checkForWin(){
 
@@ -122,5 +122,38 @@ function resetGame(){
   }
 }
 
+function drag(ev){
+  const currentDisk = ev.target.id
+  const topDisk = ev.target.parentElement.firstElementChild.id;
+  if(currentDisk === topDisk){
+    console.log("this is top disk ur moving");
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+  }else{
+    console.log("ur moving a disk that is not the top one");
+    const currentDiskObj = document.getElementById(currentDisk);
+    currentDiskObj.setAttribute("draggable", "false")
+    console.log(currentDiskObj)
+  }
+  
+}
 
+function allowDrop(ev){
+  ev.preventDefault();
+}
+
+function drop(ev){
+  ev.preventDefault();
+  console.log("drop function", ev)
+    var data = ev.dataTransfer.getData("text/plain")
+    ev.target.appendChild(document.getElementById(data));
+    console.log("item dropped")
+    resetDraggableProp()
+}
+
+function resetDraggableProp(){
+    let blueDisk = document.getElementById("1").setAttribute("draggable", "true")
+    let orangeDisk = document.getElementById("2").setAttribute("draggable", "true")
+    let redDisk = document.getElementById("3").setAttribute("draggable", "true")
+    let yellowDisk = document.getElementById("4").setAttribute("draggable", "true")
+}
 

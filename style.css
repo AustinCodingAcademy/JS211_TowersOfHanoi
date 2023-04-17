@@ -16,9 +16,6 @@
   justify-content: space-evenly
 }
 
-.row {
-  z-index: -10;
-}
 
 [data-row].red {
   background-color: #f6c5c5;
@@ -51,28 +48,31 @@
 }
 
 [data-color] {
-  width: 34px;
   float: left;
 }
 
 [data-color="blue"] {
   height: 34px;
   background-color: rgb(65, 65, 194);
+  width: 200px;
 }
 
 [data-color="orange"] {
   height: 34px;
   background-color: orange;
+  width: 150px;
 }
 
 [data-color="red"] {
   height: 34px;
   background-color: red;
+  width: 100px
 }
 
 [data-color="yellow"] {
   height: 34px;
   background-color: yellow;
+  width: 50px;
 }
 
 #announce-game-won {
