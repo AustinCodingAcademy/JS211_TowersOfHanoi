@@ -143,9 +143,11 @@ function allowDrop(ev){
 
 function drop(ev){
   ev.preventDefault();
-  console.log("drop function", ev)
-    var data = ev.dataTransfer.getData("text/plain")
-    ev.target.appendChild(document.getElementById(data));
+  console.log(ev)
+    var data = ev.dataTransfer.getData("text/plain");
+    let parentRod = document.getElementById(ev.target.id);
+    let firstChildEl = parentRod.firstChild
+    parentRod.insertBefore(document.getElementById(data), firstChildEl)
     console.log("item dropped")
     resetDraggableProp()
 }
