@@ -34,7 +34,7 @@
   background-color: aliceblue;
 }
 
-.stone {
+.disk {
   display:flex;
   flex-direction: column;
   align-items: center;
