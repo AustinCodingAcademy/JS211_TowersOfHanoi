@@ -4,7 +4,8 @@ let numberOfMoves = 1;
 
 // functions
 
-function checkForWin(){
+function checkForWin(rod1, rod2){
+  console.log(rod1, rod2)
   let diskCount
 
   const allRods = document.querySelectorAll(".rod");
@@ -22,6 +23,7 @@ function resetGame(){
 
 function drag(ev){
   const currentDisk = ev.target.id
+  // const currentRod = 
   const topDisk = ev.target.parentElement.firstElementChild.id;
   if(currentDisk === topDisk){
     ev.dataTransfer.setData("moving disk", ev.target.id);
@@ -50,7 +52,7 @@ function drop(ev){
   }else if(parseInt(ev.target.firstElementChild.id) > parseInt(ev.target.firstElementChild.nextElementSibling.id)){
     document.getElementById("moveMessage").innerHTML = "Successfully moved disk";
     document.getElementById("moves").innerHTML = numberOfMoves++;
-    checkForWin()
+    checkForWin(fromParentRod,toParentRod)
   }else if(parseInt(ev.target.firstElementChild.id) < parseInt(ev.target.firstElementChild.nextElementSibling.id)){
     fromParentRod.insertBefore(diskBeingDragged, fromParentRod.firstChild); 
     document.getElementById("moveMessage").innerHTML = "Invalid Move";
