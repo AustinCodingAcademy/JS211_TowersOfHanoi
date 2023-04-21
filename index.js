@@ -1,70 +1,23 @@
 // global variables 
 
-let moveMessage = ''; 
-let numberOfMoves = 0; 
+let numberOfMoves = 1; 
 
 // functions
 
 function checkForWin(){
+  let diskCount
 
-  const topRedRowSize = document.getElementById("top-row").childElementCount
-  const middleYellowRowSize = document.getElementById("middle-row").childElementCount
-  const bottomGreenRowSize = document.getElementById("bottom-row").childElementCount
-
-  console.log(topRedRowSize, middleYellowRowSize, bottomGreenRowSize)
-
-  if(topRedRowSize === 4 || middleYellowRowSize === 4 || bottomGreenRowSize === 4){
-    console.log("you won!");
-    alert("You won the game! Congratulations!")
-    document.getElementById("moveMessage").innerHTML = ''; 
-  }
+  const allRods = document.querySelectorAll(".rod");
+  allRods.forEach((rod) =>{
+    diskCount = rod.childElementCount;
+    if(diskCount === 4){
+      console.log("you win!")
+    }
+  });
 }
 
 function resetGame(){
-  console.log("game reset");
-  alert("Game reset");
-  moveMessage = '';
-  numberOfMoves = 0; 
-  document.getElementById("moveMessage").innerHTML = moveMessage;
-  document.getElementById("moves").innerHTML = numberOfMoves;
-  const bottomRow = document.getElementById("bottom-row")
-  const middleRow = document.getElementById("middle-row");
-  const topRow = document.getElementById("top-row");
-  let lastStone = null; 
- 
-  while(middleRow.lastElementChild){
-    lastStone = middleRow.lastElementChild
-    middleRow.removeChild(lastStone)
-    bottomRow.appendChild(lastStone)
-    lastStone = null 
-  }
-
-  while(topRow.lastElementChild){
-    lastStone = topRow.lastElementChild
-    topRow.removeChild(lastStone)
-    bottomRow.appendChild(lastStone)
-    lastStone = null 
-  }
-
-  let stones = bottomRow.childNodes
-  let stonesArray = []; 
-
-  for(let i = 0; i < stones.length; i++){
-    if(stones[i].nodeType == 1){
-      stonesArray.push(stones[i])
-    }
-  }
-  console.log(stonesArray)
-
-  stonesArray.sort(function(a,b){
-    return a.innerHTML == b.innerHTML
-    ? 0
-    : (a.innerHTML < b.innerHTML ? 1 : -1);
-  });
-
-  for(let i = 0; i < stonesArray.length; i++){
-    bottomRow.appendChild(stonesArray[i])
-  }
+  location.reload();
 }
 
 function drag(ev){
@@ -91,20 +44,16 @@ function drop(ev){
   let toParentRod = document.getElementById(ev.target.id);
   let firstChildEl = toParentRod.firstChild
   toParentRod.insertBefore(diskBeingDragged, firstChildEl);
-  if(parseInt(ev.target.firstElementChild.id) === parseInt(ev.target.lastElementChild.id)){
-    moveMessage = "Successfully moved disk"; 
-    document.getElementById("moveMessage").innerHTML = moveMessage;
-    numberOfMoves++
-    document.getElementById("moves").innerHTML = numberOfMoves
+  if(parseInt(ev.target.firstElementChild.id) === parseInt(ev.target.lastElementChild.id)){ 
+    document.getElementById("moveMessage").innerHTML = "Successfully moved disk";
+    document.getElementById("moves").innerHTML = numberOfMoves++
   }else if(parseInt(ev.target.firstElementChild.id) > parseInt(ev.target.firstElementChild.nextElementSibling.id)){
-    moveMessage = "Successfully moved disk"; 
-    document.getElementById("moveMessage").innerHTML = moveMessage;
-    numberOfMoves++
-    document.getElementById("moves").innerHTML = numberOfMoves
+    document.getElementById("moveMessage").innerHTML = "Successfully moved disk";
+    document.getElementById("moves").innerHTML = numberOfMoves++;
+    checkForWin()
   }else if(parseInt(ev.target.firstElementChild.id) < parseInt(ev.target.firstElementChild.nextElementSibling.id)){
-    fromParentRod.insertBefore(diskBeingDragged, fromParentRod.firstChild)
-    moveMessage = "Invalid Move"; 
-    document.getElementById("moveMessage").innerHTML = moveMessage;
+    fromParentRod.insertBefore(diskBeingDragged, fromParentRod.firstChild); 
+    document.getElementById("moveMessage").innerHTML = "Invalid Move";
   }
   resetDraggableProp()
 }

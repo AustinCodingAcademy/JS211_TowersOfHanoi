@@ -22,16 +22,16 @@
   
 }
 
-[data-row].yellow {
+#top-row {
   background-color: #ffffa9;
 }
 
-[data-row].green {
+#middle-row {
   background-color: #15e927;
 }
 
-[data-row].blue {
-  background-color: aliceblue;
+#bottom-row {
+  background-color: rgb(40, 22, 142);
 }
 
 .disk {

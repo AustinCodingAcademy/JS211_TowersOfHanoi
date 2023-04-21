@@ -10,16 +10,16 @@
     <h1>Towers Of Hanoi</h1>
     <button onclick="resetGame()">Reset Game</button>
     <br>
-    <h3>Number of Moves: <span id="moves"></span></h3>
+    <h3>Number of Moves: <span id="moves">0</span></h3>
     <hr/>
       <section id="rowContainer">
-        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="top-row" data-row="top" class="red row"></div>
-        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="middle-row" data-row="middle" class="yellow row" ></div>
-        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="bottom-row" class="green row" data-row="bottom">
-          <div ondragstart="drag(event)" draggable="true" id="4" data-size="4" data-color="yellow" class="disk">4</div>
-          <div ondragstart="drag(event)" draggable="true" id="3" data-size="3" data-color="red" class="disk">3</div>
-          <div ondragstart="drag(event)" draggable="true" id="2" data-size="2" data-color="orange" class="disk">2</div>
-          <div ondragstart="drag(event)" draggable="true" id="1" data-size="1" data-color="blue" class="disk">1</div>
+        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="top-row" data-row="top" class="rod"></div>
+        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="middle-row" data-row="middle" class="rod" ></div>
+        <div ondragover="allowDrop(event)" ondrop="drop(event)" id="bottom-row" class="rod" data-row="bottom">
+          <div ondragstart="drag(event)" draggable="true" id="4" data-size="4" data-color="yellow" class="disk"></div>
+          <div ondragstart="drag(event)" draggable="true" id="3" data-size="3" data-color="red" class="disk"></div>
+          <div ondragstart="drag(event)" draggable="true" id="2" data-size="2" data-color="orange" class="disk"></div>
+          <div ondragstart="drag(event)" draggable="true" id="1" data-size="1" data-color="blue" class="disk"></div>
         </div>
       </section>
     <hr/>
