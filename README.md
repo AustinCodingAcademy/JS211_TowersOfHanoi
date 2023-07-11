@@ -8,7 +8,7 @@
 
 ## Overview
 
-* [Towers of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a simple logic game involving three stacks. The first stack has four (or more) blocks, each one bigger than the next, stacked like a pyramid. The point of the game is to move the blocks from one stack and arrange them in the same order into another stack, but never placing a larger block onto a smaller block. You can play the game [here](http://vornlocher.de/tower.html) to get an idea.
+- [Towers of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a simple logic game involving three stacks. The first stack has four (or more) blocks, each one bigger than the next, stacked like a pyramid. The point of the game is to move the blocks from one stack and arrange them in the same order into another stack, but never placing a larger block onto a smaller block. You can play the game [here](http://vornlocher.de/tower.html) to get an idea.
 
 Your checkpoint is really a terminal app; which is what you'll be graded on. However, you should push to use the DOM and create a GUI for this game.
 
@@ -23,12 +23,12 @@ Your checkpoint is really a terminal app; which is what you'll be graded on. How
 1. 20pts - **Minimum 3 Unit Tests** - Should be attached to your file the same way Tic, Tac, Toe, PigLatin or Rock Paper Scissors is done.
 1. 10pts - **Graphical User Interface** - Take this game out of the terminal by adding a User Interface that uses `towersOfHanoi()` function in `index.js`.
 
-* **Extended Practice Bonus!!**
-  * Keeps count of moves as player plays games
-  * Sound Effects
-  * Peaceful Background
-  * Vertical columns
-  * Proportional Stones/tokens
+- **Extended Practice Bonus!!**
+  - Keeps count of moves as player plays games
+  - Sound Effects
+  - Peaceful Background
+  - Vertical columns
+  - Proportional Stones/tokens
 
 ### Example
 
@@ -52,7 +52,7 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 
 <iframe src="https://player.vimeo.com/video/339373348" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-******
+---
 
 ### Getting Started
 
@@ -60,7 +60,7 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 1. Ensure you have installed all dependencies/packages: `npm i`
 1. Look at the Unit Test, see what is being called, passed as input arguments, and what the expected result are.
 1. Ensure you know how to run the unit test:
-    * `npm test main.js`
+   - `npm test main.js`
 1. Use a whiteboard to work out a solution to building the Pig Latin program
 1. Translate the broad ideas to psuedo code
 1. Convert the psuedo code to real JavaScript Code
@@ -78,7 +78,7 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 1. Look at your hints!
 1. **Clone, setup, testing, and running instructions for all projects is below**
 
-******
+---
 
 ## Cloning Your Project
 
@@ -86,15 +86,15 @@ Dissect the [following game](https://codepen.io/austincoding/pen/YxMBPV/) to get
 1. Copy HTTPS URL from your forked repository
 1. In your terminal/gitBash/CommandPrompt navigate (using `cd`) into a directory where you want to start keeping your repositories. (`/jsDevFolder`)
 1. Clone your new repository by typing `git clone <forked clone URL>` (the HTTPS
-URL you copied above)
-  ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
+   URL you copied above)
+   ![Forking a repository](https://docs.google.com/drawings/d/1tYsLHaLo8JRdp0xC1EZrAo0o9Wvv4S5AD937cokVOBk/pub?w=960&h=720)
 1. Now go into the new directory by using `cd project-repo`
 
 1. Add the base repository as an upstream
-    `git remote add upstream https://github.com/AustinCodingAcademy/<PROJECT-REPO>.git`
+   `git remote add upstream https://github.com/AustinCodingAcademy/<PROJECT-REPO>.git`
 
 1. Check the configuration of your remotes with `git remote -v`, it should look
-very similar to this (except it'll be YOUR username)
+   very similar to this (except it'll be YOUR username)
 
 ```bash
 $ git remote -v
@@ -108,32 +108,32 @@ upstream    git@github.com:AustinCodingAcademy/javascript-workbook.git (push)
 ### Setup
 
 1. From your project directory, run `npm i` to tell NPM to install all the
-node modules we use in this class (see `package.json`)
+   node modules we use in this class (see `package.json`)
 1. Use your textEditor (VS Code) to change your files.
 1. When you're finished `git status`, stage your file `git add .`, commit your changes `git commit -m "functions working"`, and push to
-GitHub `git push`
-    ```bash
-    git status
-    git add .
-    git commit -m "Initial Commit"
-    git push origin gh-pages
-    ```
+   GitHub `git push`
+   `bash
+git status
+git add .
+git commit -m "Initial Commit"
+git push origin gh-pages
+`
 
 1. Now go to your forked repository on GitHub (at
-  https://github.com/your-username/javascript-workbook). A little yellow box
-  should have popped up asking you to make a Pull Request. Click to review.
+   https://github.com/your-username/javascript-workbook). A little yellow box
+   should have popped up asking you to make a Pull Request. Click to review.
 
 1. Click "Create Pull Request"
 
-1. Every time you make a change *and push to GitHub*, this PR will automatically
-update. No need to do it more than once.
+1. Every time you make a change _and push to GitHub_, this PR will automatically
+   update. No need to do it more than once.
 
 #### Get latest workbook updates
 
 1. To get the latest code/homework/test updates, be sure to have a "clean
-working directory" by committing or removing all of your changes. You check for
-a "clean working environment" by running `git status` and making sure no files
-show up.
+   working directory" by committing or removing all of your changes. You check for
+   a "clean working environment" by running `git status` and making sure no files
+   show up.
 
 1. Run `git pull upstream gh-pages`
 
@@ -162,3 +162,62 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+# Code Plan
+
+## main.js:
+
+- the movePiece() function takes 2 integer parameters, indicating the From and To positions.
+
+  - I can use push and pop array methods to make this movement
+
+- The isLegal() function also takes From and To arguments.
+
+  - cases:
+    - is legal if target arr length is 0
+    - is legal if last element of target is greater than current element
+    - all other cases are false
+
+- Check for win condition:
+
+  - [1,2,3,4] == [1,2,3,4] returns false (same w/ ===)
+    - these aren't the same object reference, so cannot be equivalent
+      - so I'll need to rely on b.length === 4 or c.length === 4
+
+- finally, towersOfHanoi() will bring it all together
+  - first check if legal
+  - move element
+  - check for win
+
+## index.js
+
+- The flow of data is a little bit different in this implementation.
+- We are accessing all of our logic through selectRow(element), which is attached in the HTML file to each row div.
+
+- stone is initialized as null.
+
+  - when selectRow() is invoked, is stone null?
+    - yes:
+      - assign last child to stone
+      - pickUpStone()
+    - no:
+      - will either be error handling or dropStone()
+
+- pickUpStone():
+
+  - can only pickup a stone if stone === null && row is not empty
+  - else restart
+
+- dropStone(rowID, selectedStone):
+
+  - the target row and currentStone are passed into this function
+  - cases:
+    - target row is empty -> append stone to target
+    - target row isn't empty:
+      - last child.id > selectedStone.id -> append stone to target
+      - last child.id < selectedStone.id is an invalid move
+
+- win condition:
+  - if top row's length === 4 OR row's length === 4
+    -> Alert: You won!!!
+  - win condition only needs to be assessed whenever a valid move is completed. We can attach this logic to the dropStone() function.
