@@ -8,7 +8,9 @@
 
 ## Overview
 
-* [Towers of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a simple logic game involving three stacks. The first stack has four (or more) blocks, each one bigger than the next, stacked like a pyramid. The point of the game is to move the blocks from one stack and arrange them in the same order into another stack, but never placing a larger block onto a smaller block. You can play the game [here](http://vornlocher.de/tower.html) to get an idea.
+* [Towers of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is a simple logic game involving three stacks. The first stack has four (or more) blocks, each one bigger than the next, stacked like a pyramid. 
+
+The point of the game is to move the blocks from one stack and arrange them in the same order into another stack, but never placing a larger block onto a smaller block. You can [play the game here](https://www.mathplayground.com/logic_tower_of_hanoi.html) to get an idea and [watch it on Youtube](https://www.youtube.com/watch?v=7AUG7zXe-KU). 
 
 Your checkpoint is really a terminal app; which is what you'll be graded on. However, you should push to use the DOM and create a GUI for this game.
 
