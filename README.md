@@ -164,3 +164,21 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code Plan:
+1. Create an HTML file that presents the GUI aspect of the game
+2. Create a Javascript file that will contain the game logic
+2. There will be 3 verticle pegs in a line, with the first peg (left most peg) containing 4 stones, organized from smallest to largest - top to bottom
+2. The user will click on the top most stone and click on a different peg to move the stone to that peg
+2. The user will then click on the new top most stone on the first peg and move it to a different peg, but is not be allowed to place it on a peg where the top most stone is smaller than itself
+2. The user will then click on the remaining stones and move them around until the stones are all organized from smallest to largest - top to bottom on the third peg (right most peg)
+3. When all of the stones are stacked smallest to largest (top to bottom) on the second or third peg - the user will get a Winning message
+
+
+
+
+
