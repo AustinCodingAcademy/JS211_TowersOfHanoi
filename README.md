@@ -15,7 +15,7 @@ The point of the game is to move the blocks from one stack and arrange them in t
 Your checkpoint is really a terminal app; which is what you'll be graded on. However, you should push to use the DOM and create a GUI for this game.
 
 ## Checklist
-
+<!--Santize inputs and use the correct notation -->
 <!-- This is for their personal navigation through the project. They can go through and make sure they get each thing and can comb over it later.  -->
 
 1. 20pts - **Code Plan** - Include this in a `README.md` file in your folder with comments in your code
